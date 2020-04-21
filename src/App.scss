@@ -1,0 +1,73 @@
+
+.App {
+  text-align: center;
+  // background-image: url('./images/textures/background-night1.png');
+  // background-color: white;
+  background-size: auto;
+  height: 100vh;
+  width: 100vw;
+  transition: background-image 4s;
+  -moz-transition: background-image 4s;
+  -webkit-transition: background-image 4s;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility:    hidden;
+  -ms-backface-visibility:     hidden;
+  .background-image{
+    z-index: -10;
+    height: inherit;
+    width: inherit;
+    position: fixed;
+   
+    *{
+      position: fixed;
+      height: inherit;
+      width: inherit;
+      transition: opacity 4s;
+      -moz-transition: opacity 4s;
+      -webkit-transition: opacity 4s;
+      
+    }
+    .home{
+      opacity: 0;
+      background-image: url('./images/textures/background-night1.png');
+    }
+    .projects{
+      opacity: 0;
+      background-image: url('./images/textures/background-noon.png');
+    }
+    .skills{
+      opacity: 0;
+      background-image: url('./images/textures/background-evening2.png');
+    }
+    .about{
+      opacity: 0;
+      background-image: url('./images/textures/background-sunset.png');
+    }
+    .home.show,.projects.show,.skills.show,.about.show{
+      opacity: 1;
+      // transition: 4s;
+    }
+
+
+  }
+
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.main-wrapper {
+  z-index: 10;
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+}
+

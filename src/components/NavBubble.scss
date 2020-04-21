@@ -1,0 +1,156 @@
+$theme-color-orange: #ff914d;
+$theme-color-blue: #007bb6;
+
+.nav-bubble{
+    opacity: 0;
+    transition: ease-out .7s;
+}
+.nav-bubble.show{
+    opacity: .8;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: fixed;
+    margin: auto;
+    z-index: 100;
+    background-color: white;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 100%;
+    box-shadow: 0px 0px 0px rgb(82, 82, 82);
+    transition: transform .5s, box-shadow .5s, top 1.2s, left 1s, z-index .5s 1s;
+
+    span{
+        position: relative;
+        opacity: 0;
+        margin: auto;
+        font-size: .6rem;
+        transition: .2s;
+    }
+    img{
+        opacity: .6;
+        align-self: center;
+        position: absolute;
+        height: 80%;
+        transition: .3s;
+        z-index: -1;
+    }
+
+
+    &.touch-false:hover{
+        cursor: pointer;
+        opacity: 1;
+        transform: scale((3));
+        margin: 0;
+        box-shadow: 5px 5px 15px rgb(0, 0, 0);
+        transition: ease-out .5s;
+        span{
+            opacity: 1;
+            color: rgb(255, 255, 255);
+            transition: ease-out .5s;
+            transition-delay: color .7s;
+        }
+        img{
+            opacity: 0;
+            transition: ease-in .2s;
+        }
+    }
+
+    &.left{
+        background-color: $theme-color-orange;
+        span{
+            color: $theme-color-orange;
+        }
+    }
+    &.right{
+        background-color: $theme-color-blue;
+        span {
+            color: $theme-color-blue;
+        }
+    }
+    
+    &#link1.left{
+        top: 40%;
+        left: 12%;
+        animation: bubble-float 2.2s  ease-in-out .2s infinite alternate forwards;    
+    }
+    &#link1.right{
+        top: 40%;
+        left: 80%;
+        animation: bubble-float 2.7s  ease-in-out .3s infinite alternate forwards;   
+    }
+    &#link2.left{
+        top: 20%;
+        left: 10%;
+        animation: bubble-float 2.5s ease-in-out .1s infinite alternate forwards;  
+    }
+    &#link2.right{
+        top: 18%;
+        left: 85%;
+        animation: bubble-float 2.2s  ease-in-out .4s infinite alternate forwards;  
+    }
+    &#link3.right{
+        top: 60%;
+        left: 83%;
+        animation: bubble-float 2.2s  ease-in-out .4s infinite alternate forwards;  
+    }
+    &#link1.left, &#link2.left, &#link3.left, &#link1.right, &#link2.right, &#link3.right {
+        
+        &.selected{
+            top: 5%;
+            left: 48%;
+            animation-play-state: paused;
+            pointer-events: none;
+            background-color: rgba(0, 0, 0, 0);
+            opacity: 1;
+            transform: scale((3));
+            box-shadow: 0px 0px 0px;
+            z-index: -10;
+            transition: ease-out .7s .3s, 
+                background-color .2s, 
+                box-shadow .2s, 
+                border-radius .4s .8s;
+            span{
+                opacity: 1;
+                color: rgb(255, 255, 255);
+                text-shadow: 1px 1px 2px rgb(0, 0, 0);
+                transition: ease-out .5s;
+                transition-delay: color .7s;
+            }
+            img{
+                opacity: .2;
+                transition: 1s .8s, top 1s;
+                height: 90%;
+                top: .5rem;
+
+                &.contrast{
+                    filter: contrast(.5) brightness(2);
+                }
+            }
+        }
+
+        &.unselected{
+            transition: top .7s, left .7s, opacity .5s;
+            top: 50%;
+            left: 50%;
+            z-index: -5;
+            opacity: 0;
+        }
+    }
+
+    &#link1:hover, &#link2:hover, &#link3:hover{
+        animation-play-state: paused;
+    }
+}
+
+@keyframes bubble-float {
+    0% {
+        margin-top: 0px;
+    }
+    50% {
+        margin-top: 12px;
+    }
+    100% {
+        margin-top: 0px;
+    }
+}
