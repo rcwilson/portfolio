@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './ContentContainer.scss'
+import GitHubLink from './projects/GitHubLink'
+import PlayLink from './projects/GitHubLink'
 
 export default function SectionContainer(props) {
     const isCarousel = props.contentArr ? true : false
@@ -17,7 +19,7 @@ export default function SectionContainer(props) {
                 } 
             },50)
         }
-    },[currentContentIndex])
+    },[currentContentIndex, isCarousel])
 
     const maxContentIndex = isCarousel ? props.contentArr.length - 1: ""
 
@@ -53,39 +55,55 @@ export default function SectionContainer(props) {
         buttons.forEach(button=>{
             button.classList.add('disable')
         })
+
         document.querySelector('.section-header').classList.add("transition")
+
+        const tabs = document.querySelectorAll('.link-tab')
+        if(tabs){
+            tabs.forEach(tab=>{
+                tab.classList.add('hide')
+            })
+        }
 
         setTimeout(()=>{
             circles.forEach(circle=>{
                 circle.classList.remove('transition')
             })
             document.querySelector('.section-header').classList.remove("transition")
+
+            const newTabs = document.querySelectorAll('.link-tab')
+
+            if(newTabs){
+                newTabs.forEach(tab=>{
+                    tab.classList.remove('hide')
+                })
+            }
             }, 800)
 
         if(direction==="left") {
-            document.querySelector('.content-container').classList.add(`transition-left`)
+            document.querySelector('.content-container-wrapper').classList.add(`transition-left`)
             setTimeout(()=>{
-                document.querySelector('.content-container').classList.remove(`transition-left`)
-                document.querySelector('.content-container').classList.add(`transition-from-right`)
+                document.querySelector('.content-container-wrapper').classList.remove(`transition-left`)
+                document.querySelector('.content-container-wrapper').classList.add(`transition-from-right`)
                 },750)
             setTimeout(()=>{
                 buttons.forEach(button=>{
                     button.classList.remove('disable')
                 })
-                document.querySelector('.content-container').classList.remove(`transition-from-right`)
+                document.querySelector('.content-container-wrapper').classList.remove(`transition-from-right`)
             }, 1200)
         }
         if(direction==="right") {
-            document.querySelector('.content-container').classList.add(`transition-right`)
+            document.querySelector('.content-container-wrapper').classList.add(`transition-right`)
             setTimeout(()=>{
-                document.querySelector('.content-container').classList.remove(`transition-right`)
-                document.querySelector('.content-container').classList.add(`transition-from-left`)
+                document.querySelector('.content-container-wrapper').classList.remove(`transition-right`)
+                document.querySelector('.content-container-wrapper').classList.add(`transition-from-left`)
                 },750)
             setTimeout(()=>{
                 buttons.forEach(button=>{
                     button.classList.remove('disable')
                 })
-                document.querySelector('.content-container').classList.remove(`transition-from-left`)
+                document.querySelector('.content-container-wrapper').classList.remove(`transition-from-left`)
             }, 1200)
         }
     }
@@ -95,20 +113,27 @@ export default function SectionContainer(props) {
         handleTransition("left")
         setTimeout(()=>{
             changeContentLeft()
-        }, 750)
+        }, 700)
     }
     function handleRightButtonClick(){
         handleTransition("right")
         setTimeout(()=>{
             changeContentRight()
-        }, 750)
+        }, 700)
     }   
 
 
 
     return (
-        <article className="section-container">
+        <article className={`section-container ${props.styleMod ? props.styleMod : ""}`}>
+            
             <section className="section-container-wrapper">
+                {props.gitHubArr ?
+                    props.gitHubArr[currentContentIndex]
+                    : "" }
+                {props.playArr ?
+                    props.playArr[currentContentIndex]
+                    : "" }
 
                 <header className="section-header">
                     
@@ -120,7 +145,6 @@ export default function SectionContainer(props) {
                     <span className="circle blue three"></span>
                     <span className="circle blue two"></span>
                     <span className="circle blue one"></span>
-                    <hr></hr>
                 </header>
                 <section className="content-container">
                     <div className="content-container-wrapper">
@@ -130,6 +154,8 @@ export default function SectionContainer(props) {
                 </section>
             {isCarousel ? 
                 <footer>
+                    
+
                     {props.contentArr.map((item, index)=>{
                         return <span key={index} id={index}  className="index-bubble">•</span>
                     })

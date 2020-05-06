@@ -8,6 +8,8 @@ $theme-color-blue1: #007cb652;
 $theme-color-light-blue: #38b6ff;
 $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
 
+$small-screen: 768px;
+
 @keyframes circle-transition-left {
     from {
         opacity: 0;
@@ -76,9 +78,10 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
     width: 80%;
     height: 500px;
     max-width: 600px;
-    margin: auto;
+    margin: 6rem auto;
     box-shadow: $box-shadow;
     border: 18px solid;
+    outline: 2px black solid;
     border-color: 
         $theme-color-blue3
         $theme-color-light-blue
@@ -87,16 +90,33 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
     transition: 1s;
     animation: move-in 1s ease-out 1 normal forwards;
 
+    &.projects{
+        height: 600px;
+    }
+
     &.move-out{
         animation: move-out .7s ease-in 1 normal forwards;
     }
-
+    @media (max-width: $small-screen){
+        .content-button{
+            position: fixed;
+            bottom: .5rem;
+        }
+    }
+    @media (min-width: $small-screen){
+        .content-button{
+            position: absolute;
+            bottom: -5rem;
+        }
+    }
+    i{
+        color: rgb(165, 165, 165);
+    }
     .content-button{
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
-        position: absolute;
         box-shadow: 0px 0px 14px inset rgba(0, 0, 0, 0.521);
         border: 2px solid black;
 
@@ -109,8 +129,7 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
         }
        
         &.left{
-            bottom: -5rem;
-            left: 0;
+            left: .5rem;
             z-index: 50;
             height: 2rem;
             width: 40%;
@@ -124,8 +143,7 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
             }
         }
         &.right{
-            bottom: -5rem;
-            right: 0;
+            right: .5rem;
             z-index: 50;
             height: 2rem;
             width: 40%;
@@ -157,8 +175,12 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
             justify-content: center;
             align-content: center;
             height: 5rem;
-            padding: .25rem 0;
-            font-size: 2rem;
+            font-size: 2.5rem;
+
+            h2{
+                font-size: 1.8rem;
+                padding: 0;
+            }
 
             &.transition{
                 h2{opacity: 0;
@@ -166,16 +188,27 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
                 }
             }
 
+            @media (max-width: $small-screen) {
+                .circle{
+                    height: 1rem;
+                    width: 1rem;
+                }
+            }
+            @media (min-width: $small-screen){
+                .circle{
+                height: 1.3rem;
+                width: 1.3rem;
+                }
+            }
+            
             .circle{
                 opacity: 0;
                 position: relative;
-                height: 1.3rem;
-                width: 1.3rem;
-                border-radius: 100%;
+                border-radius: 50%;
                 margin: auto;
                 
+
                 &.orange{
-                    left: -3rem;
                            
                     &.one{
                         animation: circle-transition-left .3s ease-out 1.6s 1 forwards;
@@ -194,7 +227,6 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
                         -moz-animation: circle-transition-left .4s ease-out 1.4s 1 forwards;
                         background-color: $theme-color-orange2;
                         &.transition{
-                            left: 0;
                             opacity: 1;
                             animation: circle-transition-left-out .3s ease-out .2s 1 forwards;
                             -webkit-animation: circle-transition-left-out .3s ease-out .2s 1 forwards;
@@ -205,7 +237,6 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
                         background-color: $theme-color-orange3;
                         animation: circle-transition-left .5s ease-out 1.1s 1 forwards;
                         &.transition{
-                            left: 0;
                             opacity: 1;
                             animation: circle-transition-left-out .3s ease-out .4s 1 forwards;
                             -webkit-animation: circle-transition-left-out .3s ease-out .4s 1 forwards;
@@ -214,7 +245,7 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
                     }
                 }
                 &.blue{
-                    right: -3rem;
+                    
                     &.one{
                         animation: circle-transition-right .3s ease-out 1.6s 1 forwards;
                         background-color: $theme-color-blue1;
@@ -226,7 +257,6 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
                         animation: circle-transition-right .3s ease-out 1.4s 1 forwards;
                         background-color: $theme-color-blue2;
                         &.transition{
-                            right: 0;
                             opacity: 1;
                             animation: circle-transition-right-out .3s ease-out .2s 1 forwards;
                         }
@@ -235,7 +265,6 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
                         animation: circle-transition-right .3s ease-out 1.1s 1 forwards;
                         background-color: $theme-color-blue3;
                         &.transition{
-                            right: 0;
                             opacity: 1;
                             animation: circle-transition-right-out .3s ease-out .4s 1 forwards;
                         }
@@ -245,6 +274,7 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
             h2{
                 opacity: 1;
                 font-size: 2rem;
+                text-shadow: 4px 4px 4px rgba(156, 156, 156, 0.377);
                 margin: auto;
                 transition: .6s ease-out .6s;
             }
@@ -260,50 +290,47 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
         }
         
         .content-container{
-            position: relative;
-            left: 0;
-            right: 0;
             display: flex;
-            flex-flow: column nowrap;
-            align-content: center;
             justify-content: center;
+            align-content: center;
             height: 100%;
-            width: 80%;
-            margin: 1rem auto;
-            padding: 2rem 3rem;
-            overflow-y: auto;
-            overflow-x: hidden;
+            overflow: hidden;
+
 
             .content-container-wrapper{
+                
+                position: relative;
+                overflow-y: auto;
                 overflow-x: hidden;
+                height: 95%;
+                width: 95%;
+                margin: 0 1rem 1rem 1rem;
+                padding-top: 1rem;
+
+                &.transition-left{
+                    animation: transition-left .4s ease-in 1 forwards;
+                }
+                &.transition-from-right{
+                    animation: transition-from-right .4s ease-out 1 forwards;
+                }
+                &.transition-right{
+                    animation: transition-right .4s 1 ease-in forwards;
+                }
+                &.transition-from-left{
+                    animation: transition-from-left .4s 1 ease-out forwards;
+                }
+
+
             }
             
 
-            * {
-                position: relative;
-                left: 0;
-                right: 0;
-            }
-
-            &.transition-left > *{
-                animation: transition-left .4s ease-in 1 forwards;
-            }
-            &.transition-from-right > *{
-                animation: transition-from-right .4s ease-out 1 forwards;
-            }
-            &.transition-right > *{
-                animation: transition-right .4s 1 ease-in forwards;
-            }
-            &.transition-from-left > *{
-                animation: transition-from-left .4s 1 ease-out forwards;
-            }
         }
     }
 
     footer{
         user-select: none;
         margin: .25rem;
-
+        background: none;
         span{font-size: 2rem;}
         .current{
             color: $theme-color-light-blue;

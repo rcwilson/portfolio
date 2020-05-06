@@ -1,3 +1,12 @@
+$theme-color-orange3: #ff914d;
+$theme-color-orange2: #ff914d9f;
+$theme-color-orange1: #ff914d54;
+
+$theme-color-blue3: #007bb6;
+$theme-color-blue2: #007cb6a8;
+$theme-color-blue1: #007cb652;
+$theme-color-light-blue: #38b6ff;
+$box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
 
 .App {
   text-align: center;
@@ -49,12 +58,28 @@
       opacity: 1;
       // transition: 4s;
     }
-
-
+    
+    
   }
-
+  
 }
 
+.tooltip{
+  z-index: 1000;
+  opacity: 1;
+  position: fixed;
+  display: block;
+    img{
+      border: 2px solid;
+      border-color: 
+        $theme-color-blue3
+        $theme-color-light-blue
+        $theme-color-light-blue
+        $theme-color-blue3;
+      box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.527);
+      height: 300px;
+    }
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -69,5 +94,23 @@
   display: flex;
   flex-flow: row;
   height: 100%;
+}
+
+*{
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
 }
 

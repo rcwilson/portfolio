@@ -7,7 +7,7 @@ export default function Intro() {
     return (
 
         <ContentContainer header="Welcome">
-            <img src={headshot} className="headshot"></img>
+            <img alt="headshot" src={headshot} className="headshot"></img>
             <p>You made it!</p>
             <p>Thanks for visiting my page, visitor!</p>
             <p>

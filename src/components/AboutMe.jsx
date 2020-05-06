@@ -1,12 +1,19 @@
 import React from 'react'
 import ContentContainer from './ContentContainer'
-// import './AboutMe.scss'
+import headshot from '../images/headshot/headshot_cropped.jpg'
+import './Intro.scss'
 
 export default function AboutMe() {
 
     function Background() {
         return (
-            <><p>
+            <>
+            <header>
+            <img alt="Headshot" src={headshot} className="headshot"></img>
+            </header>
+            <section>
+
+            <p>
             My name is Richard. I've been obsessed with technology my entire life.
             </p>
             <p>
@@ -15,7 +22,9 @@ export default function AboutMe() {
             </p>
             <p>
             I've only recently made the steps to get an education and join the software development workforce. 
-            </p></>
+            </p>
+            </section>
+            </>
         )
     }
     function Journey(){
@@ -36,23 +45,23 @@ export default function AboutMe() {
     }
     function Hobbies(){
         return(
-            <>
-                <p>Coding </p>
-                <p>Gaming </p>
-                <p>Cooking </p>
-                <p>Strength Training </p>
-                <p>Jokes </p>
-                <p>Riddles </p>
-                <p>Mixology </p>
-                <p>Coding </p>
-                <p>Gaming </p>
-                <p>Cooking </p>
-                <p>Strength Training </p>
-                <p>Jokes </p>
-                <p>Riddles </p>
-                <p>Mixology </p>
+            <div className="hobbies-list">
+                <li>Coding </li>
+                <li>Gaming </li>
+                <li>Cooking </li>
+                <li>Strength Training </li>
+                <li>Jokes </li>
+                <li>Riddles </li>
+                <li>Mixology </li>
+                <li>Learning </li>
+                <li>Rhythm </li>
+                <li>Designing </li>
+                <li>Socializing </li>
+                <li>Conventions </li>
+                <li>Piano </li>
+                <li>Singing</li>
             
-            </>
+            </div>
         )
     }
     const contentArray = [<Background />, <Journey />, <Hobbies />]

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import AboutMe from './components/AboutMe'
+import ContactMe from './components/ContactMe'
 import Intro from './components/Intro'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
@@ -13,8 +14,27 @@ import aboutIcon from './images/icons/sims-icon.png'
 import resumeIcon from './images/icons/resume-icon.png'
 
 function App() {
+  const [toolTipContent, setToolTipContent] = React.useState("")
 
-  const [content, setContent] = React.useState(<Intro />)
+  //Add UseEffect so it isn't constantly listening
+  //********************************************** */
+  window.addEventListener('mousemove', moveToolTip)
+    
+    function moveToolTip(event) {
+      const toolTip = document.querySelector(".tooltip")
+
+        const clientYOffset = 30
+        const clientXOffset = 10
+        toolTip.style.top = (event.clientY + clientYOffset) + "px"
+        toolTip.style.left = (event.clientX + clientXOffset) + "px"
+      
+    }
+    
+    function handleToolTipContent(newContent){
+      setToolTipContent(newContent)
+    }
+
+  const [content, setContent] = React.useState(<ContactMe />)
 
   function toggleNavBubbles(linkName) {
     const navBubbleArr = document.querySelectorAll('.nav-bubble')
@@ -46,8 +66,12 @@ function App() {
 
   function changeContent(newContent) {
     const sectionElement = document.querySelector('.section-container')
+    const skillCardContainerElement = document.querySelector('.skill-cards-container')
     if(sectionElement){
       sectionElement.classList.add('move-out')
+    }
+    if(skillCardContainerElement){
+      skillCardContainerElement.classList.add('move-out')
     }
     setTimeout(() => {
       setContent(newContent)
@@ -55,7 +79,7 @@ function App() {
   }
 
   function onClickProjects() {
-    changeContent(<Projects />)
+    changeContent(<Projects tooltip={handleToolTipContent}/>)
     toggleNavBubbles('projects')
     toggleBackgroundImage('projects')
   }
@@ -69,7 +93,7 @@ function App() {
     toggleNavBubbles('resume')
   }
   function onClickContact() {
-    changeContent()
+    changeContent(<ContactMe />)
     toggleNavBubbles('contact')
   }
   function onClickAbout() {
@@ -82,20 +106,19 @@ function App() {
     <>
       <div className="App">
         <div className="background-image">
-          <div className="bg-img home show"></div>
+          <div className="bg-img home"></div>
           <div className="bg-img about"></div>
           <div className="bg-img projects"></div>
-          <div className="bg-img skills"></div>
+          <div className="bg-img skills  show"></div>
         </div>
 
-        <div className="main-wrapper">
-          {content}
-        </div>
+
+        <nav className="nav-wrapper">
         <NavBubble number="1" position="left" linkName="projects" onClick={onClickProjects}>
           <span>Projects</span>
           <img src={wrenchIcon} alt="projects"></img>
         </NavBubble>
-        <NavBubble number="1" position="right" linkName="contact" onClick={onClickContact}>
+        <NavBubble number="1" position="right" linkName="contact selected" onClick={onClickContact}>
           <span>Contact</span>
           <img src={emailIcon} alt="contact me"  className="contrast"></img>
         </NavBubble>
@@ -111,6 +134,13 @@ function App() {
           <span>About Me</span>
           <img src={aboutIcon} alt="about me"></img>
         </NavBubble>
+
+        </nav>
+
+        <div className="main-wrapper">
+        <span className="tooltip">{toolTipContent}</span>
+          {content}
+        </div>
 
       </div>
     </>
