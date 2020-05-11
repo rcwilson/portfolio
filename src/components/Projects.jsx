@@ -15,6 +15,7 @@ export default function Projects(props) {
     const bringItGit = "https://github.com/rcwilson/Bring-It-Front-End"
     const blackjackGit = "https://github.com/rcwilson/blackjack-rcw"
 
+    const friendAventurePlay = "https://rcwilson.github.io/friend-adventure"
     const blackjackPlay = "https://rcwilson.github.io/blackjack-rcw/"
     
     function addImageToolTip(event){
@@ -36,7 +37,9 @@ export default function Projects(props) {
         <GitHubLink href={bringItGit} />, 
         <GitHubLink href={blackjackGit} /> 
     ]
-    const playArr=["","", 
+    const playArr=[
+        <PlayLink href={friendAventurePlay} />,
+        "", 
         <PlayLink href={blackjackPlay} />
 ]
 

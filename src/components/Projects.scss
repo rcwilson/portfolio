@@ -106,7 +106,7 @@ $title-shadow: 3px 3px 4px rgba(0, 0, 0, 0.493);
 .link-tab{
     position: absolute;
     &.play-link{
-        left: 6rem;
+        right: 1rem;
     }
     &.github-link{
         left: 1rem;
@@ -117,6 +117,8 @@ $title-shadow: 3px 3px 4px rgba(0, 0, 0, 0.493);
     height: 60px;
     width: 60px;
     box-shadow: 3px -3px 8px rgba(0, 0, 0, 0.356);
+    background-color: white;
+    border-bottom: 2px solid black;
     z-index: 50;
     transition: padding-bottom .4s;
     animation: fade-in .7s ease-out 1.2s forwards;

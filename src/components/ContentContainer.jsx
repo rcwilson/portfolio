@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import './ContentContainer.scss'
-import GitHubLink from './projects/GitHubLink'
-import PlayLink from './projects/GitHubLink'
 
 export default function SectionContainer(props) {
     const isCarousel = props.contentArr ? true : false
+    const isContact = props.styleMod === "contact" ? true : false
 
     const [currentContentIndex, setCurrentContentIndex] = useState(0)
     useEffect(()=>{
@@ -141,7 +140,7 @@ export default function SectionContainer(props) {
                     <span className="circle orange two"></span>
                     <span className="circle orange three"></span>
                    
-                <h2>{isCarousel ? props.headerArr[currentContentIndex] : props.header}</h2>
+                {isCarousel ? <h2>{props.headerArr[currentContentIndex]}</h2> : props.header ? <h2>{props.header}</h2> : ""}
                     <span className="circle blue three"></span>
                     <span className="circle blue two"></span>
                     <span className="circle blue one"></span>
@@ -154,15 +153,27 @@ export default function SectionContainer(props) {
                 </section>
             {isCarousel ? 
                 <footer>
-                    
-
                     {props.contentArr.map((item, index)=>{
-                        return <span key={index} id={index}  className="index-bubble">•</span>
-                    })
-                    }
+                        return <span key={index} id={index}  className="index-bubble">•</span>}) 
+                        }
                 </footer>
-            : ""
-            }
+            : ""}
+            {isContact ?
+                <footer className="contact-footer">
+                    <span className="circle-footer orange one"></span>
+                    <span className="circle-footer orange one"></span>
+                    <span className="circle-footer orange two"></span>
+                    <span className="circle-footer orange two"></span>
+                    <span className="circle-footer orange three"></span>                 
+                    <span className="circle-footer orange three"></span>                 
+                    <span className="circle-footer blue three"></span>
+                    <span className="circle-footer blue three"></span>
+                    <span className="circle-footer blue two"></span>
+                    <span className="circle-footer blue two"></span>
+                    <span className="circle-footer blue one"></span>
+                    <span className="circle-footer blue one"></span>
+                </footer>
+            : ""}
             </section>
             {isCarousel ?
             <>

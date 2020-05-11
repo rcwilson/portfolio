@@ -4,6 +4,7 @@ import AboutMe from './components/AboutMe'
 import ContactMe from './components/ContactMe'
 import Intro from './components/Intro'
 import Projects from './components/Projects'
+import Resume from './components/Resume'
 import Skills from './components/Skills'
 import NavBubble from './components/NavBubble'
 
@@ -16,25 +17,25 @@ import resumeIcon from './images/icons/resume-icon.png'
 function App() {
   const [toolTipContent, setToolTipContent] = React.useState("")
 
-  //Add UseEffect so it isn't constantly listening
-  //********************************************** */
-  window.addEventListener('mousemove', moveToolTip)
-    
     function moveToolTip(event) {
       const toolTip = document.querySelector(".tooltip")
 
-        const clientYOffset = 30
-        const clientXOffset = 10
-        toolTip.style.top = (event.clientY + clientYOffset) + "px"
-        toolTip.style.left = (event.clientX + clientXOffset) + "px"
-      
+      const clientYOffset = 30
+      const clientXOffset = 10
+      toolTip.style.top = (event.clientY + clientYOffset) + "px"
+      toolTip.style.left = (event.clientX + clientXOffset) + "px"
     }
     
     function handleToolTipContent(newContent){
       setToolTipContent(newContent)
+      if(newContent){
+        window.addEventListener('mousemove', moveToolTip)
+      } else {
+        window.removeEventListener('mousemove', moveToolTip)
+      }
     }
 
-  const [content, setContent] = React.useState(<ContactMe />)
+  const [content, setContent] = React.useState(<Intro />)
 
   function toggleNavBubbles(linkName) {
     const navBubbleArr = document.querySelectorAll('.nav-bubble')
@@ -89,7 +90,7 @@ function App() {
     toggleBackgroundImage('skills')
   }
   function onClickResume() {
-    changeContent()
+    changeContent(<Resume />)
     toggleNavBubbles('resume')
   }
   function onClickContact() {
@@ -118,7 +119,7 @@ function App() {
           <span>Projects</span>
           <img src={wrenchIcon} alt="projects"></img>
         </NavBubble>
-        <NavBubble number="1" position="right" linkName="contact selected" onClick={onClickContact}>
+        <NavBubble number="1" position="right" linkName="contact" onClick={onClickContact}>
           <span>Contact</span>
           <img src={emailIcon} alt="contact me"  className="contrast"></img>
         </NavBubble>

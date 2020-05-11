@@ -1,10 +1,8 @@
 import React from 'react'
 import './Skills.scss'
-import ContentContainer from './ContentContainer'
 
 export default function Skills() {
 
-    let allCards = document.querySelectorAll('.skill-card')
     let currentCard = ""
 
     function clickCard(cardName){
@@ -12,9 +10,7 @@ export default function Skills() {
         if(currentCard === newCard){
             currentCard.classList.toggle("flipped")
         } else {
-            // allCards.forEach(card=>{
-            //     card.classList.remove("flipped")
-            // })
+            
             if(currentCard){
                 currentCard.classList.remove("flipped")
                 currentCard.classList.add("unselected")
