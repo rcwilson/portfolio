@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.16814acf.chunk.css",
+    "main.js": "/portfolio/static/js/main.f8ada2ad.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.f8ada2ad.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.075c0788.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.075c0788.js.map",
+    "static/js/2.44409633.chunk.js": "/portfolio/static/js/2.44409633.chunk.js",
+    "static/js/2.44409633.chunk.js.map": "/portfolio/static/js/2.44409633.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "precache-manifest.9e6d8aac1bdbf447732dde3702fd5b06.js": "/portfolio/precache-manifest.9e6d8aac1bdbf447732dde3702fd5b06.js",
+    "service-worker.js": "/portfolio/service-worker.js",
+    "static/css/main.16814acf.chunk.css.map": "/portfolio/static/css/main.16814acf.chunk.css.map",
+    "static/js/2.44409633.chunk.js.LICENSE.txt": "/portfolio/static/js/2.44409633.chunk.js.LICENSE.txt",
+    "static/media/Resume.png": "/portfolio/static/media/Resume.5daba7dc.png",
+    "static/media/Resume.pdf": "/portfolio/static/media/Resume.b7d45019.pdf",
+    "static/media/App.scss": "/portfolio/static/media/background-sunset.f2825400.png",
+    "static/media/blackjack-1.JPG": "/portfolio/static/media/blackjack-1.85b94cac.JPG",
+    "static/media/blackjack-2.JPG": "/portfolio/static/media/blackjack-2.5b7e38ab.JPG",
+    "static/media/bring-it-1.JPG": "/portfolio/static/media/bring-it-1.fd9a52f4.JPG",
+    "static/media/bring-it-2.JPG": "/portfolio/static/media/bring-it-2.1d8e3406.JPG",
+    "static/media/friendventure-1.JPG": "/portfolio/static/media/friendventure-1.543294a3.JPG",
+    "static/media/friendventure-2.JPG": "/portfolio/static/media/friendventure-2.e0998ffc.JPG",
+    "static/media/friendventure-3.JPG": "/portfolio/static/media/friendventure-3.2ac519f2.JPG",
+    "static/media/gear-icon.png": "/portfolio/static/media/gear-icon.97ca7fed.png",
+    "static/media/headshot_cropped.jpg": "/portfolio/static/media/headshot_cropped.f40f38a5.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.075c0788.js",
+    "static/js/2.44409633.chunk.js",
+    "static/css/main.16814acf.chunk.css",
+    "static/js/main.f8ada2ad.chunk.js"
+  ]
+}
