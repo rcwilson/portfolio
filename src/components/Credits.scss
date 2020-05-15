@@ -1,0 +1,29 @@
+@keyframes credits{
+    0%{bottom: -100%;}
+    100%{bottom: 200%;}
+}
+
+.credits-container{
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    .credits-content{
+        margin: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        *{
+            margin-bottom: 3rem;
+        }
+        position: relative;
+        bottom: -100%;
+        color: white;
+        animation: credits 45s  1.5s linear forwards;
+
+        header{
+            color: yellow;
+            font-weight: bold;
+        }
+    }
+}

@@ -46,7 +46,7 @@ $small-screen: 900px;
     span{
         position: relative;
         opacity: 0;
-        margin: auto;
+        margin: auto auto;
         font-size: .6rem;
         transition: .2s;
     }
@@ -93,7 +93,7 @@ $small-screen: 900px;
     }
     
     &#link1.left{
-        top: 40%;
+        top: 20%;
         left: 3%;
         animation: bubble-float 3.2s  ease-in-out .2s infinite alternate forwards;    
     }
@@ -103,7 +103,7 @@ $small-screen: 900px;
         animation: bubble-float 3.7s  ease-in-out .3s infinite alternate forwards;   
     }
     &#link2.left{
-        top: 20%;
+        top: 40%;
         left: 1%;
         animation: bubble-float 3.5s ease-in-out .1s infinite alternate forwards;  
     }
@@ -116,6 +116,11 @@ $small-screen: 900px;
         top: 60%;
         left: 89%;
         animation: bubble-float 2.9s  ease-in-out .4s infinite alternate forwards;  
+    }
+    &#link3.left{
+        top: 60%;
+        left: 3%;
+        animation: bubble-float 2.7s  ease-in-out .3s infinite alternate forwards;  
     }
     &#link1.left, &#link2.left, &#link3.left, &#link1.right, &#link2.right, &#link3.right {
         
@@ -135,11 +140,11 @@ $small-screen: 900px;
                 box-shadow .2s, 
                 border-radius .4s .8s;
             span{
+                margin: 1.5rem auto;
                 opacity: 1;
                 color: rgb(255, 255, 255);
                 text-shadow: 1px 1px 2px rgb(0, 0, 0);
-                transition: ease-out .5s;
-                transition-delay: color .7s;
+                transition: .5s;
             }
             img{
                 opacity: .2;

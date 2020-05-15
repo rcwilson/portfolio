@@ -52,7 +52,19 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
       opacity: 0;
       background-image: url('./images/textures/background-sunset.png');
     }
-    .home.show,.projects.show,.skills.show,.about.show{
+    .credits{
+      opacity: 0;
+      background-image: url('./images/textures/background-night2.png');
+    }
+    .resume{
+      opacity: 0;
+      background-image: url('./images/textures/background-morning.png');
+    }
+    .contact{
+      opacity: 0;
+      background-image: url('./images/textures/background-evening.png');
+    }
+    .home.show,.projects.show,.skills.show,.about.show,.credits.show,.resume.show{
       opacity: 1;
       // transition: 4s;
     }

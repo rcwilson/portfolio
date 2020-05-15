@@ -52,7 +52,7 @@ $font-family2: 'Muli','Courier New', Courier, monospace;
         height: 400px;
         width: 300px;
         transform-style: preserve-3d;
-        bottom: -5%;
+        bottom: -10%;
         transition: .7s;
         -moz-backface-visibility: hidden;
         
@@ -63,7 +63,10 @@ $font-family2: 'Muli','Courier New', Courier, monospace;
             .title{
                 position: relative;
                 color: white;
-                bottom: -2rem;
+                background-color: black;
+                bottom: -1.7rem;
+                margin-right: -5px;
+                margin-bottom: -8px;
                 z-index: 10;
             }           
             .face{
@@ -112,7 +115,7 @@ $font-family2: 'Muli','Courier New', Courier, monospace;
         bottom: 60%;
         left: 50%;
         margin-bottom: -200px;
-        margin-left: -150px;
+        margin-left: -147px;
         transition: .8s;
 
         .title{

@@ -1,0 +1,64 @@
+$theme-color-orange3: #ff914d;
+$theme-color-orange2: #ff914d9f;
+$theme-color-orange1: #ff914d54;
+
+$theme-color-blue3: #007bb6;
+$theme-color-blue2: #007cb6a8;
+$theme-color-blue1: #007cb652;
+$theme-color-light-blue: #38b6ff;
+
+@keyframes fade-in{
+    0%{opacity: 0;};
+    100%{opacity: 1;};
+}
+.about-content{
+
+    color: white;
+    background-color: $theme-color-blue3;
+    border: 2px inset white;
+    border-radius: 10px;
+    margin: 1rem 1.25rem;
+    padding: 1rem;
+    box-shadow: 0px 0px 10px black;
+
+    p{
+        opacity: 0;
+        animation: fade-in .8s ease-in forwards;
+        @for $p from 1 through 12{
+            &:nth-child(#{$p}){
+                animation-delay: 500ms * $p;
+            }
+        }
+        i{
+            font-style: normal;
+            color: $theme-color-orange3;
+        }
+    }
+}
+.headshot{
+    height: 6rem;
+    width: 6rem;
+    border: 2px black solid;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.hobbies-list{
+    width: 100%;
+    max-width: 220px;
+    margin: auto;
+    height: 100%;
+    color: yellow;
+    background-color: $theme-color-blue3;
+    border: 2px inset white;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: left;
+    
+    * > tr{
+        :last-child{
+            color: white;
+        }
+    }
+    
+}

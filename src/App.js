@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import AboutMe from './components/AboutMe'
 import ContactMe from './components/ContactMe'
+import Credits from './components/Credits'
 import Intro from './components/Intro'
 import Projects from './components/Projects'
 import Resume from './components/Resume'
@@ -92,15 +93,22 @@ function App() {
   function onClickResume() {
     changeContent(<Resume />)
     toggleNavBubbles('resume')
+    toggleBackgroundImage('resume')
   }
   function onClickContact() {
     changeContent(<ContactMe />)
     toggleNavBubbles('contact')
+    toggleBackgroundImage('resume')
   }
   function onClickAbout() {
     changeContent(<AboutMe />)
     toggleNavBubbles('about')
     toggleBackgroundImage('about')
+  }
+  function onClickCredits() {
+    changeContent(<Credits />)
+    toggleNavBubbles('credits')
+    toggleBackgroundImage('credits')
   }
 
   return (
@@ -109,7 +117,10 @@ function App() {
         <div className="background-image">
           <div className="bg-img home"></div>
           <div className="bg-img about"></div>
+          <div className="bg-img credits"></div>
           <div className="bg-img projects"></div>
+          <div className="bg-img resume"></div>
+          <div className="bg-img contact"></div>
           <div className="bg-img skills  show"></div>
         </div>
 
@@ -135,7 +146,10 @@ function App() {
           <span>About Me</span>
           <img src={aboutIcon} alt="about me"></img>
         </NavBubble>
-
+        <NavBubble number="3" position="left" linkName="credits" onClick={onClickCredits}>
+          <span>Credits</span>
+          <img src={aboutIcon} alt="credits"></img>
+        </NavBubble>
         </nav>
 
         <div className="main-wrapper">

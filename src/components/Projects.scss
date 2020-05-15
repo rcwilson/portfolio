@@ -10,6 +10,9 @@ $theme-color-light-blue: #38b6ff;
 
 $title-color: black;
 $title-shadow: 3px 3px 4px rgba(0, 0, 0, 0.493);
+
+$small-screen: 768px;
+
 .thumbnail-slides{
     position: relative;
     width: 100%;
@@ -116,6 +119,12 @@ $title-shadow: 3px 3px 4px rgba(0, 0, 0, 0.493);
     border-radius: 5px 5px 0 0;
     height: 60px;
     width: 60px;
+        // @media (max-width: $small-screen){
+        //     &.play-link,&.github-link{
+        //         height: 40px;
+        //         width: 40px;
+        //     }
+        // }
     box-shadow: 3px -3px 8px rgba(0, 0, 0, 0.356);
     background-color: white;
     border-bottom: 2px solid black;
