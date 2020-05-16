@@ -128,7 +128,7 @@ $small-screen: 768px;
     box-shadow: 3px -3px 8px rgba(0, 0, 0, 0.356);
     background-color: white;
     border-bottom: 2px solid black;
-    z-index: 50;
+    z-index: 20;
     transition: padding-bottom .4s;
     animation: fade-in .7s ease-out 1.2s forwards;
     a{
@@ -206,20 +206,23 @@ $small-screen: 768px;
 @keyframes fade-in{
     0%{
     opacity: 0;
-    bottom: -.5rem;
+    box-shadow: none;
     }
+    80%{opacity: 1;}
     100%{
     opacity: 1;
-    bottom: 0;
+    box-shadow: 3px -3px 8px rgba(0, 0, 0, 0.356);
     }
 }
 @keyframes fade-out{
     0%{
     opacity: 1;
-    bottom: 0;
+    box-shadow: 3px -3px 8px rgba(0, 0, 0, 0.356);
     }
+    80%{box-shadow: none;}
     100%{
     opacity: 0;
-    bottom: -.5rem;
+    box-shadow: none;
+
     }
 }

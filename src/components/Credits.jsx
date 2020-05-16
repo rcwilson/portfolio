@@ -12,9 +12,10 @@ export default function Credits(){
                 <span>Coded in VS Code</span>
                 <span>Hosted by Netlify</span>
                 <header>Icon credits</header>
-                <span>Wrench Icon: icons8.com</span>
-                <span>Play Icon: iconfinder.com -P.J. Onori</span>
-                <span>Email Icon: Me</span>
+                <span>Wrench Icon...icons8.com</span>
+                <span>Play Icon...iconfinder.com -P.J. Onori</span>
+                <span>Email Icon...Me</span>
+                <span>Credits Icon...Me</span>
                 <header>Special Thanks</header>
                 <span>We Can Code It Staff & Peers</span>
                 <span>StackOverflow contributors</span>

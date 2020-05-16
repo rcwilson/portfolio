@@ -9,10 +9,11 @@ import Resume from './components/Resume'
 import Skills from './components/Skills'
 import NavBubble from './components/NavBubble'
 
-import wrenchIcon from './images/icons/wrench-icons8.png'
-import gearIcon from './images/icons/gear-icon.png'
-import emailIcon from './images/icons/email.png'
 import aboutIcon from './images/icons/sims-icon.png'
+import creditsIcon from './images/icons/credits-icon.png'
+import emailIcon from './images/icons/email.png'
+import gearIcon from './images/icons/gear-icon.png'
+import wrenchIcon from './images/icons/wrench-icons8.png'
 import resumeIcon from './images/icons/resume-icon.png'
 
 function App() {
@@ -142,13 +143,13 @@ function App() {
           <span>Skills </span>
           <img src={gearIcon} alt="projects"></img>
         </NavBubble>
-        <NavBubble number="3" position="right" linkName="about" onClick={onClickAbout}>
+        <NavBubble number="3" position="left" linkName="about" onClick={onClickAbout}>
           <span>About Me</span>
           <img src={aboutIcon} alt="about me"></img>
         </NavBubble>
-        <NavBubble number="3" position="left" linkName="credits" onClick={onClickCredits}>
+        <NavBubble number="3" position="right" linkName="credits" onClick={onClickCredits}>
           <span>Credits</span>
-          <img src={aboutIcon} alt="credits"></img>
+          <img src={creditsIcon} alt="credits"></img>
         </NavBubble>
         </nav>
 

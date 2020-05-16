@@ -8,7 +8,7 @@ export default function Resume() {
     return (
         <ContentContainer>
         <a href={resume} target="_blank" className="resume-link">
-            <img className="resume-thumbnail" src={resumeImg}></img>
+            <img className="resume-thumbnail" src={resumeImg} alt="resume"></img>
         </a>
         </ContentContainer>
     )

@@ -24,13 +24,16 @@ function Email(){
     return(
         
         <div className="contact-me-info">
-        Email me at: <a alt="Copy Email" id="email" href="mailto:rcwilson88@gmail.com">rcwilson88@gmail.com</a>
-        <section>
-            <hr></hr>
+        Email link <a alt="Copy Email" id="email" href="mailto:rcwilson88@gmail.com">rcwilson88@gmail.com</a>
+        
+            
+            <span>or click to copy</span>
             <div className="copy-icon" onClick={copyEmail}>
                 <img alt="Copy Email Icon" src={copyIcon}></img>
-            </div> or click to copy address.
-        </section>
+                <br />
+            </div> 
+            
+        
 
         </div>
         
@@ -59,6 +62,15 @@ function GitHub(){
     )
 }
 
+function setIcon(iconClassName){
+    const selectedIcon = document.querySelector(iconClassName)
+    const allIcons = document.querySelectorAll('.link-icon')
+
+    allIcons.forEach(icon=>{
+        icon.classList.remove('selected')
+    })
+    selectedIcon.classList.add('selected')
+}
 
 export default function Contactme() {
     const initialContent = <>Let's talk! Click one of the above icons for more info.</>
@@ -66,22 +78,25 @@ export default function Contactme() {
 
     function setToEmail(){
         setContent(<Email />)
+        setIcon('.email-icon')
     }
     function setToLinkedIn(){
         setContent(<LinkedIn />)
+        setIcon('.linkedin-icon')
     }
     function setToGitHub(){
         setContent(<GitHub />)
+        setIcon('.github-icon')
     }
 
 
     return (
 
-        <ContentContainer header="Connect" styleMod="contact">
+        <ContentContainer header="Connect" styleMod="contact about">
             <header className="link-icons">
-            <img alt="Email Me" src={mailLogo} onClick={setToEmail}></img>
-            <img alt="LinkedIn Profile" src={linkedInLogo} onClick={setToLinkedIn}></img>
-            <img alt="GitHub Repo" src={gitHubLogo} onClick={setToGitHub}></img>
+            <img className="link-icon email-icon" alt="Email Me" src={mailLogo} onClick={setToEmail}></img>
+            <img className="link-icon linkedin-icon" alt="LinkedIn Profile" src={linkedInLogo} onClick={setToLinkedIn}></img>
+            <img className="link-icon github-icon" alt="GitHub Repo" src={gitHubLogo} onClick={setToGitHub}></img>
             </header>
             <section className="contact-me-content">
                 {content}
