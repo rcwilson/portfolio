@@ -127,30 +127,30 @@ function App() {
 
 
         <nav className="nav-wrapper">
-        <NavBubble number="1" position="left" linkName="projects" onClick={onClickProjects}>
-          <span>Projects</span>
-          <img src={wrenchIcon} alt="projects"></img>
-        </NavBubble>
-        <NavBubble number="1" position="right" linkName="contact" onClick={onClickContact}>
-          <span>Contact</span>
-          <img src={emailIcon} alt="contact me"  className="contrast"></img>
-        </NavBubble>
-        <NavBubble number="2" position="left" linkName="resume" onClick={onClickResume}>
-          <span>Resume</span>
-          <img src={resumeIcon} alt="resume"></img>
-        </NavBubble>
-        <NavBubble number="2" position="right" linkName="skills" onClick={onClickSkills}>
-          <span>Skills </span>
-          <img src={gearIcon} alt="projects"></img>
-        </NavBubble>
-        <NavBubble number="3" position="left" linkName="about" onClick={onClickAbout}>
-          <span>About Me</span>
-          <img src={aboutIcon} alt="about me"></img>
-        </NavBubble>
-        <NavBubble number="3" position="right" linkName="credits" onClick={onClickCredits}>
-          <span>Credits</span>
-          <img src={creditsIcon} alt="credits"></img>
-        </NavBubble>
+          <NavBubble number="1" position="left" linkName="projects" onClick={onClickProjects}>
+            <span>Projects</span>
+            <img src={wrenchIcon} alt="projects"></img>
+          </NavBubble>
+          <NavBubble number="1" position="right" linkName="contact" onClick={onClickContact}>
+            <span>Contact</span>
+            <img src={emailIcon} alt="contact me"  className="contrast"></img>
+          </NavBubble>
+          <NavBubble number="2" position="left" linkName="resume" onClick={onClickResume}>
+            <span>Resume</span>
+            <img src={resumeIcon} alt="resume"></img>
+          </NavBubble>
+          <NavBubble number="2" position="right" linkName="skills" onClick={onClickSkills}>
+            <span>Skills </span>
+            <img src={gearIcon} alt="projects"></img>
+          </NavBubble>
+          <NavBubble number="3" position="left" linkName="about" onClick={onClickAbout}>
+            <span>About Me</span>
+            <img src={aboutIcon} alt="about me"></img>
+          </NavBubble>
+          <NavBubble number="3" position="right" linkName="credits" onClick={onClickCredits}>
+            <span>Credits</span>
+            <img src={creditsIcon} alt="credits"></img>
+          </NavBubble>
         </nav>
 
         <div className="main-wrapper">
