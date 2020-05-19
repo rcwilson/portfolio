@@ -18,17 +18,22 @@ export default function NavBarMobile(props) {
     const navWrapper = document.querySelector(".navbar-mobile")
     const navMenu = document.querySelector(".navbar-menu")
     const navButton = document.querySelector(".navbar-button")
-    navMenu.classList.toggle("open")
     navWrapper.classList.add("hide")
+    navMenu.classList.toggle("open")
     navButton.classList.toggle("hide")
+    setTimeout(()=>{
+      navWrapper.classList.add("disable")
+    },1400)
   }
   function showNavMenu(){
     const navWrapper = document.querySelector(".navbar-mobile")
     const navMenu = document.querySelector(".navbar-menu")
     const navButton = document.querySelector(".navbar-button")
-    navMenu.classList.toggle("open")
     navWrapper.classList.remove("hide")
+    navWrapper.classList.remove("disable")
+    navMenu.classList.toggle("open")
     navButton.classList.toggle("hide")
+
   }
   function handleNavLinkClick(linkName, checkForTouchScreen){
     if(checkForTouchScreen && touch){

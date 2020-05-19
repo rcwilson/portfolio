@@ -5,8 +5,10 @@ $small-screen: 900px;
 @media (min-width: $small-screen){
   .navbar-button,.navbar-mobile{
       display: none;
+      opacity: 0;
   }   
 }
+
 .navbar-button{
   cursor: pointer;
   opacity: 1;
@@ -195,14 +197,17 @@ $small-screen: 900px;
     100%{opacity: 0; visibility: hidden;}
   }
   &.disable{
-    
+    display: none;
     .navbar-menu{
-
+      
+      display: none;
       opacity: 0;
     }
   }
   &.hide{
-    animation: navbar-mobile-hide 1.2s ease-in-out forwards;
+    // animation: navbar-mobile-hide 1.2s ease-in-out forwards;
+    opacity: 0;
+    transition: opacity 1.2s;
     .navbar-exit{
       display: none;
     }

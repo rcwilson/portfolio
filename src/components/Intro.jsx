@@ -15,7 +15,6 @@ export default function Intro(props) {
             setContent(<WelcomeIntro />)
             props.navBar()
             document.querySelector('.navbar-button').classList.remove("hide")
-            document.querySelector('.navbar-mobile').classList.remove("disable")
         },6680)
 
     }
