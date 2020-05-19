@@ -8,6 +8,7 @@ import Projects from './components/Projects'
 import Resume from './components/Resume'
 import Skills from './components/Skills'
 import NavBubble from './components/NavBubble'
+import NavBarMobile from './components/NavBarMobile'
 
 import aboutIcon from './images/icons/sims-icon.png'
 import creditsIcon from './images/icons/credits-icon.png'
@@ -37,7 +38,13 @@ function App() {
       }
     }
 
-  const [content, setContent] = React.useState(<Intro navBar={toggleNavBubbles}/>)
+  const [content, setContent] = React.useState(
+  // DEV Mode:
+  // <Projects />
+
+  // Actual Start: 
+  <Intro navBar={toggleNavBubbles}/>
+  )
 
   function toggleNavBubbles(linkName) {
     const navBubbleArr = document.querySelectorAll('.nav-bubble')
@@ -125,7 +132,14 @@ function App() {
           <div className="bg-img skills  show"></div>
         </div>
 
-
+        <NavBarMobile
+          projects={onClickProjects}
+          resume={onClickResume}
+          about={onClickAbout}
+          skills={onClickSkills}
+          contact={onClickContact}
+          credits={onClickCredits}
+        />
         <nav className="nav-wrapper">
           <NavBubble number="1" position="left" linkName="projects" onClick={onClickProjects}>
             <span>Projects</span>

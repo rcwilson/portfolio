@@ -28,7 +28,7 @@ export default function Skills() {
         }, 1100)
         setTimeout(()=>{
             currentCard.classList.toggle("flipped")
-        },1500)
+        },1750)
     }
 
     onLoad()

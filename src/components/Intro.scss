@@ -7,11 +7,11 @@ $theme-color-blue3: #007bb6;
 }
 
 @keyframes door-glow{
-    0%{box-shadow: -20px -20px 70px $theme-color-orange3, 20px 20px 70px $theme-color-blue3;}
+    0%{box-shadow: -5px -5px 10px $theme-color-orange3, 5px 5px 10px $theme-color-blue3;}
     25%{box-shadow: -40px -40px 80px $theme-color-orange3, 40px 40px 80px $theme-color-blue3;}
-    50%{box-shadow: -55px -60px 75px $theme-color-orange3, 55px 60px 75px $theme-color-blue3;}
-    70%{box-shadow: -40px -40px 80px $theme-color-orange3, 40px 40px 80px $theme-color-blue3;}
-    100%{box-shadow: -45px -45px 80px $theme-color-orange3, 45px 45px 80px $theme-color-blue3;}
+    50%{box-shadow: -80px -20px 90px $theme-color-orange3, 80px 20px 90px $theme-color-blue3;}
+    70%{box-shadow: -10px 0px 80px $theme-color-orange3, 10px 0px 80px $theme-color-blue3;}
+    100%{box-shadow: -5px 0px 80px $theme-color-orange3, 10px 0px 80px $theme-color-blue3;}
 }
 
 .intro-door-container{
@@ -24,6 +24,7 @@ $theme-color-blue3: #007bb6;
     img{
         cursor: pointer;
         margin: auto;
+        box-shadow: -5px -5px 10px $theme-color-orange3, 5px 5px 10px $theme-color-blue3;
     }
     .door-text{
         width: 100%;
@@ -31,7 +32,7 @@ $theme-color-blue3: #007bb6;
         color: white;
         font-size: 2rem;
         text-shadow: white 0px 0px 10px;
-        bottom: 1.25rem;
+        bottom: 3rem;
         span {
             opacity: 0;            
         }
@@ -39,14 +40,19 @@ $theme-color-blue3: #007bb6;
     }
     &.selected{
         background-color: rgba(0, 0, 0, 0);
-        opacity: 0;
-        filter: blur(3px);
-        transition: background-color 7s 3.5s, opacity 1.8s 5.5s, filter 1.9s 5s;
-
+        transition: background-color 3.2s 4s;
+        
         img{
-            animation: door-glow 6s linear alternate 1s infinite;
-            box-shadow: -20px -20px 70px $theme-color-orange3,20px 20px 70px $theme-color-blue3;;
-            transition: 1s;
+            // box-shadow: -20px -20px 70px $theme-color-orange3,20px 20px 70px $theme-color-blue3;
+            // transition: box-shadow 1s;
+            // -moz-transition: box-shadow 1s;
+            animation: door-glow 6s ease-in-out alternate infinite;
+            // animation-delay: 1s;
+        }
+        img,.door-text{
+            filter: blur(5px);
+            opacity: 0;
+            transition:  opacity 1.8s 3.7s, filter 1.8s 3.8s;
         }
         .door-text{
             span{
@@ -65,7 +71,7 @@ $theme-color-blue3: #007bb6;
     // text-shadow: white 0px 0px 10px;
 }
 .intro-map{
-    width: 100%;
+    width: 80%;
     max-width: 450px;
     display: flex;
     justify-content: center;
@@ -91,7 +97,7 @@ $theme-color-blue3: #007bb6;
             font-weight: bold;
         }
         :last-child{
-            padding-left: 2rem;
+            padding-left: 1rem;
             font-size: .7rem;
         }
         &:hover{

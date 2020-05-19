@@ -1,7 +1,6 @@
 import React from 'react'
 import ContentContainer from './ContentContainer'
 import './Intro.scss'
-import headshot from '../images/headshot/headshot_cropped.jpg'
 import door from '../images/Door.png'
 
 export default function Intro(props) {
@@ -15,7 +14,9 @@ export default function Intro(props) {
         setTimeout(()=>{
             setContent(<WelcomeIntro />)
             props.navBar()
-        },8000)
+            document.querySelector('.navbar-button').classList.remove("hide")
+            document.querySelector('.navbar-mobile').classList.remove("disable")
+        },6680)
 
     }
 
@@ -66,7 +67,7 @@ export default function Intro(props) {
                         </tr>
                         <tr>
                             <td>Credits</td>
-                            <td>Tools used and asset attribues</td>
+                            <td>Tools used and asset attributes</td>
                         </tr>
                     </tbody>
                 </table>

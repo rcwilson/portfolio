@@ -11,7 +11,7 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
 .App {
   text-align: center;
   background-size: auto;
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   transition: background-image 4s;
   -moz-transition: background-image 4s;
@@ -21,6 +21,7 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility:    hidden;
   -ms-backface-visibility:     hidden;
+
   .background-image{
     z-index: -10;
     height: inherit;
@@ -101,7 +102,7 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
 
 .main-wrapper {
   z-index: 10;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
