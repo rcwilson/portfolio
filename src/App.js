@@ -37,7 +37,7 @@ function App() {
       }
     }
 
-  const [content, setContent] = React.useState(<Intro />)
+  const [content, setContent] = React.useState(<Intro navBar={toggleNavBubbles}/>)
 
   function toggleNavBubbles(linkName) {
     const navBubbleArr = document.querySelectorAll('.nav-bubble')
@@ -152,7 +152,7 @@ function App() {
             <img src={creditsIcon} alt="credits"></img>
           </NavBubble>
         </nav>
-
+        
         <div className="main-wrapper">
         <span className="tooltip">{toolTipContent}</span>
           {content}

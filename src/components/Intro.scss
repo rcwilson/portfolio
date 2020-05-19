@@ -1,0 +1,104 @@
+$theme-color-orange3: #ff914d;
+$theme-color-blue3: #007bb6;
+
+@keyframes fade-in-welcome{
+    0%{opacity: 0;};
+    100%{opacity: 1;};
+}
+
+@keyframes door-glow{
+    0%{box-shadow: -20px -20px 70px $theme-color-orange3, 20px 20px 70px $theme-color-blue3;}
+    25%{box-shadow: -40px -40px 80px $theme-color-orange3, 40px 40px 80px $theme-color-blue3;}
+    50%{box-shadow: -55px -60px 75px $theme-color-orange3, 55px 60px 75px $theme-color-blue3;}
+    70%{box-shadow: -40px -40px 80px $theme-color-orange3, 40px 40px 80px $theme-color-blue3;}
+    100%{box-shadow: -45px -45px 80px $theme-color-orange3, 45px 45px 80px $theme-color-blue3;}
+}
+
+.intro-door-container{
+    position: fixed;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    
+    img{
+        cursor: pointer;
+        margin: auto;
+    }
+    .door-text{
+        width: 100%;
+        position: absolute;
+        color: white;
+        font-size: 2rem;
+        text-shadow: white 0px 0px 10px;
+        bottom: 1.25rem;
+        span {
+            opacity: 0;            
+        }
+        
+    }
+    &.selected{
+        background-color: rgba(0, 0, 0, 0);
+        opacity: 0;
+        filter: blur(3px);
+        transition: background-color 7s 3.5s, opacity 1.8s 5.5s, filter 1.9s 5s;
+
+        img{
+            animation: door-glow 6s linear alternate 1s infinite;
+            box-shadow: -20px -20px 70px $theme-color-orange3,20px 20px 70px $theme-color-blue3;;
+            transition: 1s;
+        }
+        .door-text{
+            span{
+                animation: fade-in-welcome .8s ease-in forwards;
+                @for $span from 1 through 20{
+                    &:nth-child(#{$span}){
+                    animation-delay: 400ms * $span;
+                    }
+                }
+            }
+        }
+    }
+}
+.intro-header{
+    color: white;
+    // text-shadow: white 0px 0px 10px;
+}
+.intro-map{
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: $theme-color-blue3;
+    box-shadow: 0px 0px 10px black;
+
+    border: 2px inset white;
+    border-radius: 10px;
+    padding: 1rem;
+    color: white;
+
+    *>tr{
+        padding: .7rem;
+        height: 2rem;
+        border-radius: 5px;
+        transition: .3s;
+        *{
+            user-select: none;
+        }
+        :first-child{
+            color: $theme-color-orange3;
+            font-weight: bold;
+        }
+        :last-child{
+            padding-left: 2rem;
+            font-size: .7rem;
+        }
+        &:hover{
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.568);
+            transition: .2s;
+        }
+
+    }
+
+}

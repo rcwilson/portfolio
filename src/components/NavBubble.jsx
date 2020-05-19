@@ -8,7 +8,7 @@ export default function NavBubble(props) {
   }
 
     return (
-        <div className={`nav-bubble show ${props.position} ${props.linkName} touch-${touch}`} 
+        <div className={`nav-bubble show unselected ${props.position} ${props.linkName} touch-${touch}`} 
           id={`link${props.number}`} 
           onClick={props.onClick}>
             {props.children}
