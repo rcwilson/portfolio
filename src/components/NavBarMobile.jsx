@@ -14,13 +14,14 @@ export default function NavBarMobile(props) {
     touch = true  
   }
   
-  function hideNavMenu(){
+  function exitNavMenu(){
     const navWrapper = document.querySelector(".navbar-mobile")
     const navMenu = document.querySelector(".navbar-menu")
     const navButton = document.querySelector(".navbar-button")
+
     navWrapper.classList.add("hide")
-    navMenu.classList.toggle("open")
-    navButton.classList.toggle("hide")
+    navMenu.classList.remove("open")
+    navButton.classList.remove("hide")
     setTimeout(()=>{
       navWrapper.classList.add("disable")
     },1400)
@@ -29,17 +30,19 @@ export default function NavBarMobile(props) {
     const navWrapper = document.querySelector(".navbar-mobile")
     const navMenu = document.querySelector(".navbar-menu")
     const navButton = document.querySelector(".navbar-button")
+
     navWrapper.classList.remove("hide")
     navWrapper.classList.remove("disable")
-    navMenu.classList.toggle("open")
-    navButton.classList.toggle("hide")
+    navMenu.classList.add("open")
+    navButton.classList.add("hide")
 
   }
   function handleNavLinkClick(linkName, checkForTouchScreen){
+    console.log(`${linkName}- touch:${touch} checkfortouch:${checkForTouchScreen}` )
     if(checkForTouchScreen && touch){
       return
     } else {
-      hideNavMenu()
+      exitNavMenu()
       const disabledLink = document.querySelector('.navbar-link-disabled')
       const linkToDisable = document.getElementById(`link-${linkName}`)
   
@@ -100,7 +103,7 @@ export default function NavBarMobile(props) {
               <img src={creditsIcon}></img>
             </div>
           </section>
-            <div className="navbar-exit" onClick={hideNavMenu}></div>
+            <div className="navbar-exit" onClick={exitNavMenu}></div>
         </nav>
       </>
     )
