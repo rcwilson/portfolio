@@ -38,19 +38,10 @@ export default function NavBarMobile(props) {
 
   }
   function handleNavLinkClick(linkName, checkForTouchScreen){
-    console.log(`${linkName}- touch:${touch} checkfortouch:${checkForTouchScreen}` )
     if(checkForTouchScreen && touch){
       return
     } else {
       exitNavMenu()
-      const disabledLink = document.querySelector('.navbar-link-disabled')
-      const linkToDisable = document.getElementById(`link-${linkName}`)
-  
-      if(disabledLink){
-        disabledLink.classList.remove('navbar-link-disabled')
-      }
-      linkToDisable.classList.add('navbar-link-disabled')
-  
       switch(linkName){
         case "projects": props.projects();
         break;

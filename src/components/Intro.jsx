@@ -45,24 +45,27 @@ export default function Intro(props) {
                 <table className="intro-map">
                     <tbody>
                         <tr>
-                            <td>Projects</td>
-                            <td>Showcases my recent works</td>
+                        <th colSpan="2">Guide</th>
                         </tr>
                         <tr>
-                            <td>Skills</td>
-                            <td>View my experience and tools</td>
+                            <td>About Me</td>
+                            <td>My adventure, aspirations, and hobbies</td>
                         </tr>
                         <tr>
                             <td>Resume</td>
                             <td>Preview and download my Resume</td>
                         </tr>
                         <tr>
-                            <td>Contact</td>
-                            <td>Email, Social Media, and GitHub</td>
+                            <td>Projects</td>
+                            <td>Showcases my recent works</td>
                         </tr>
                         <tr>
-                            <td>About Me</td>
-                            <td>Read about my adventure, destination, and hobbies</td>
+                            <td>Skills</td>
+                            <td>Abilities and experience</td>
+                        </tr>
+                        <tr>
+                            <td>Contact</td>
+                            <td>Email, Social Media, and GitHub</td>
                         </tr>
                         <tr>
                             <td>Credits</td>

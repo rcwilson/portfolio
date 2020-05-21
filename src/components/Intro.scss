@@ -10,8 +10,8 @@ $theme-color-blue3: #007bb6;
     0%{box-shadow: -5px -5px 10px $theme-color-orange3, 5px 5px 10px $theme-color-blue3;}
     25%{box-shadow: -40px -40px 80px $theme-color-orange3, 40px 40px 80px $theme-color-blue3;}
     50%{box-shadow: -80px -20px 90px $theme-color-orange3, 80px 20px 90px $theme-color-blue3;}
-    70%{box-shadow: -10px 0px 80px $theme-color-orange3, 10px 0px 80px $theme-color-blue3;}
-    100%{box-shadow: -5px 0px 80px $theme-color-orange3, 10px 0px 80px $theme-color-blue3;}
+    70%{box-shadow: -10px 20px 80px $theme-color-orange3, 10px -20px 80px $theme-color-blue3;}
+    100%{box-shadow: -30px 0px 80px $theme-color-orange3, 30px 0px 80px $theme-color-blue3;}
 }
 
 .intro-door-container{
@@ -43,11 +43,7 @@ $theme-color-blue3: #007bb6;
         transition: background-color 3.2s 4s;
         
         img{
-            // box-shadow: -20px -20px 70px $theme-color-orange3,20px 20px 70px $theme-color-blue3;
-            // transition: box-shadow 1s;
-            // -moz-transition: box-shadow 1s;
             animation: door-glow 6s ease-in-out alternate infinite;
-            // animation-delay: 1s;
         }
         img,.door-text{
             filter: blur(5px);
@@ -68,7 +64,6 @@ $theme-color-blue3: #007bb6;
 }
 .intro-header{
     color: white;
-    // text-shadow: white 0px 0px 10px;
 }
 .intro-map{
     width: 80%;
@@ -84,6 +79,7 @@ $theme-color-blue3: #007bb6;
     padding: 1rem;
     color: white;
 
+    
     *>tr{
         padding: .7rem;
         height: 2rem;
@@ -92,11 +88,14 @@ $theme-color-blue3: #007bb6;
         *{
             user-select: none;
         }
-        :first-child{
+        th{
+            padding-left: 0;
+        }
+        td:first-child{
             color: $theme-color-orange3;
             font-weight: bold;
         }
-        :last-child{
+        td:last-child{
             padding-left: 1rem;
             font-size: .7rem;
         }

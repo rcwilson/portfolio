@@ -48,6 +48,8 @@ function App() {
 
   function toggleNavBubbles(linkName) {
     const navBubbleArr = document.querySelectorAll('.nav-bubble')
+    const disabledLink = document.querySelector('.navbar-link-disabled')
+    const linkToDisable = document.getElementById(`link-${linkName}`)
     navBubbleArr.forEach(bubble => {
       if (!(bubble.classList.contains(linkName))) {
         bubble.classList.remove('selected')
@@ -56,6 +58,12 @@ function App() {
         bubble.classList.add('selected')
       }
     })
+    if(disabledLink){
+      disabledLink.classList.remove('navbar-link-disabled')
+    }
+    if(linkToDisable){
+      linkToDisable.classList.add('navbar-link-disabled')
+    }
     setTimeout(() => {
       navBubbleArr.forEach(bubble => {
         bubble.classList.remove('unselected')
@@ -106,7 +114,7 @@ function App() {
   function onClickContact() {
     changeContent(<ContactMe />)
     toggleNavBubbles('contact')
-    toggleBackgroundImage('resume')
+    toggleBackgroundImage('contact')
   }
   function onClickAbout() {
     changeContent(<AboutMe />)
@@ -123,13 +131,13 @@ function App() {
     <>
       <div className="App">
         <div className="background-image">
-          <div className="bg-img home"></div>
+          <div className="bg-img home show"></div>
           <div className="bg-img about"></div>
           <div className="bg-img credits"></div>
           <div className="bg-img projects"></div>
           <div className="bg-img resume"></div>
           <div className="bg-img contact"></div>
-          <div className="bg-img skills  show"></div>
+          <div className="bg-img skills "></div>
         </div>
 
         <NavBarMobile

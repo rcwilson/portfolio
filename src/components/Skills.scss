@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Muli|PT+Sans|Poppins|VT323&display=swap');
-$card-unselected: #ff914d;
+$card-unselected: #000000b9;
 $theme-color-orange2: #ff914d;
 $tool-theme: #000000b4;
 
@@ -71,6 +71,7 @@ $font-family2: 'Muli','Courier New', Courier, monospace;
             }           
             .face{
                 &.front,&.back{
+                    box-shadow: 10px -10px 15px rgba(0, 0, 0, 0.582);
                     background-color: $card-unselected;  
                     transition: background-color .4s .5s;                  
                 }

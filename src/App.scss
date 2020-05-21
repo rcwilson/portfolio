@@ -51,7 +51,7 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
     }
     .about{
       opacity: 0;
-      background-image: url('./images/textures/background-sunset.png');
+      background-image: url('./images/textures/background-morning.png');
     }
     .credits{
       opacity: 0;
@@ -59,13 +59,13 @@ $box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
     }
     .resume{
       opacity: 0;
-      background-image: url('./images/textures/background-morning.png');
+      background-image: url('./images/textures/background-morning2.png');
     }
     .contact{
       opacity: 0;
       background-image: url('./images/textures/background-evening.png');
     }
-    .home.show,.projects.show,.skills.show,.about.show,.credits.show,.resume.show{
+    .home.show,.projects.show,.skills.show,.about.show,.credits.show,.resume.show, .contact.show{
       opacity: 1;
       // transition: 4s;
     }
