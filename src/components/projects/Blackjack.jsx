@@ -13,7 +13,7 @@ export default function Blackjack(props) {
         </p>
         <p>
         My first take on an actual front-end application using vanilla JavaScript.
-        This project game incredible clarity on what Webpack does, various ways to
+        This project gave me incredible clarity on what Webpack does, various ways to
          use CSS, and the power of JavaScript DOM manipulation.
         </p>
         </section>

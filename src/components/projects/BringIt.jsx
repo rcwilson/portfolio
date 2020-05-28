@@ -12,7 +12,7 @@ export default function BringIt(props) {
         then claim items needed or create their own. Bring it is about to be a potluck savior.
         </p>
         <p>
-         The data is stored in a cloud database called Mongoose. 
+         The data is stored in a cloud database called MongoDB. 
          Bring It works through a custom-built API that handles the logic and management of that data.   
         </p>
         </section>
