@@ -76,7 +76,7 @@ $small-screen: 768px;
     top: 100%;
     background-color: white;
     width: 85%;
-    height: 60%;
+    height: 65%;
     max-width: 600px;
     margin: 4.5rem auto;
     box-shadow: $box-shadow;
@@ -117,10 +117,10 @@ $small-screen: 768px;
     @media (max-width: $small-screen){
 
         margin: 4rem auto;
-        max-height: 85vh;
+        // max-height: 85vh;
         .content-button{
             position: fixed;
-            bottom: -5rem;
+            bottom: -3.5rem;
             font-size: .8rem;
         }
     }
@@ -134,7 +134,7 @@ $small-screen: 768px;
         .content-button{
             margin: 0 11%;
             position: fixed;
-            bottom: 3rem;
+            bottom: 2.1rem;
         }
     }
     i{

@@ -15,28 +15,35 @@ export default function NavBarMobile(props) {
   }
   
   function exitNavMenu(){
-    const navWrapper = document.querySelector(".navbar-mobile")
+    const navWrapper = document.querySelector(".navbar-mobile-wrapper")
     const navMenu = document.querySelector(".navbar-menu")
     const navButton = document.querySelector(".navbar-button")
+    const navExit = document.querySelector(".navbar-exit-button")
 
-    navWrapper.classList.add("hide")
-    navMenu.classList.remove("open")
-    navButton.classList.remove("hide")
+    navMenu.classList.add("exit")
+    navExit.classList.remove("show-menu")
+    navWrapper.classList.add("disable")
+    
     setTimeout(()=>{
-      navWrapper.classList.add("disable")
-    },1400)
+      navMenu.classList.remove("show-menu", "exit")
+      navButton.classList.remove("hide")
+    },2200)
+
   }
+  
   function showNavMenu(){
-    const navWrapper = document.querySelector(".navbar-mobile")
+    const navWrapper = document.querySelector(".navbar-mobile-wrapper")
     const navMenu = document.querySelector(".navbar-menu")
     const navButton = document.querySelector(".navbar-button")
+    const navExit = document.querySelector(".navbar-exit-button")
 
-    navWrapper.classList.remove("hide")
     navWrapper.classList.remove("disable")
-    navMenu.classList.add("open")
+    navMenu.classList.add("show-menu")
     navButton.classList.add("hide")
+    navExit.classList.add("show-menu")
 
   }
+
   function handleNavLinkClick(linkName, checkForTouchScreen){
     if(checkForTouchScreen && touch){
       return
@@ -60,13 +67,10 @@ export default function NavBarMobile(props) {
       }
     }
   }
-
-  
-
     return (
       <>
         <nav className="navbar-button hide" onClick={showNavMenu}>≡</nav>
-        <nav className="navbar-mobile hide disable">
+        <nav className="navbar-mobile-wrapper disable">
           <section className="navbar-menu">
             
             <div id="link-projects" className="navbar-link left" onClick={()=>{handleNavLinkClick("projects",true)}}>
@@ -94,7 +98,7 @@ export default function NavBarMobile(props) {
               <img src={creditsIcon}></img>
             </div>
           </section>
-            <div className="navbar-exit" onClick={exitNavMenu}></div>
+            <div className="navbar-exit-button" onClick={exitNavMenu}></div>
         </nav>
       </>
     )

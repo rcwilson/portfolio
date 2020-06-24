@@ -24,16 +24,16 @@ $small-screen: 900px;
   color: rgb(250, 250, 250);
   line-height: 42px;
   z-index: 80;
-  transition: .8s 2s;
+  transition: .8s;
 
   &.hide{
     top: -2rem;
     opacity: 0;
-    transition: .8s;
+    transition: .2s;
   }
 }
 
-.navbar-mobile{
+.navbar-mobile-wrapper{
   opacity: 1;
   user-select: none;
   visibility: visible;
@@ -45,10 +45,25 @@ $small-screen: 900px;
   transition: opacity .9s, background-color 1s;
   overflow: hidden;
 
-  
-  .navbar-exit{
+  @keyframes navbar-mobile-hide{
+    0%{opacity: 1; visibility: visible;}
+    95%{opacity: 0; visibility: visible;}
+    100%{opacity: 0; visibility: hidden;}
+  }
+  &.disable{
+    animation: navbar-mobile-hide 1.2s forwards;
+    // display: none;
+    // opacity: 0;
+    // transition-duration: 1s;
+  }
+  @keyframes navbar-button-fade{
+    0%{ opacity: 0;}
+    100%{ opacity: 1;}
+  }
+  .navbar-exit-button{
     cursor: pointer;
     position: absolute;
+    opacity: 0;
     top: 2rem;
     left: 83%;
     height: 30px;
@@ -56,17 +71,26 @@ $small-screen: 900px;
     border-radius: 50%;
     background-color: rgb(160, 160, 160);
     color: rgb(31, 31, 31);
-    &:hover{background-color: white; transition: .3s;}
+    &.show-menu{
+      animation: navbar-button-fade 1s 1.2s forwards;
+    }
+    &:hover{background-color: rgba(255, 255, 255, 0.295); transition: .3s;}
     &::after{
       content: "X";
       line-height: 30px;
     }
   }
+
 @keyframes navbar-menu-open{
-  0%{transform: scale(.3) rotate(60deg);opacity: 0; top: 0;}
+  0%{transform: scale(.2) rotate(60deg);opacity: 0; top: 0;}
   100%{transform: scale(1) rotate(0deg);opacity: 1; top: 50%;}
 }
+@keyframes navbar-menu-close{
+  0%{transform: rotate(0deg) scale(1); opacity: 1; top: 50%;}
+  100%{transform: rotate(-60deg) scale(.2); opacity: 0; top: -10%;}
+}
   .navbar-menu{
+    display: none;
     position: relative;
     border-radius: 50%;
     height: 250px;
@@ -79,12 +103,15 @@ $small-screen: 900px;
       left: 50%;
       transition: 1s;
     }
-    &.open{
+    &.show-menu{
+      display: block;
       animation: navbar-menu-open 1s ease-in-out forwards;
       div{
         transition: .6s ;
       }
-      
+      &.exit{
+        animation: navbar-menu-close 1s ease-in-out forwards;
+      }
       div:nth-child(1){
         top: 0;
         left: 25%;
@@ -109,6 +136,12 @@ $small-screen: 900px;
         top: 100%;
         left: 75%;
       }
+      div:nth-child(1):hover,div:nth-child(2):hover,div:nth-child(3):hover,div:nth-child(4):hover,div:nth-child(5):hover,div:nth-child(6):hover{
+        left: 50%;
+        top: 50%;
+        transition-delay: .05s;
+        transition-property: left, top;
+      }      
     }
       span{
         pointer-events: none;
@@ -125,11 +158,7 @@ $small-screen: 900px;
         padding: 0;
         line-height: 100px;
         opacity: 0;
-        // transition: .2s;
-      }
-
-
-    
+      }    
   
     .navbar-link{
       cursor: pointer;
@@ -166,6 +195,8 @@ $small-screen: 900px;
       &:hover{
         background-color: rgb(255, 255, 255);
         box-shadow: white 0px 0px 20px;
+        
+        
       }
       &:hover>span{
         pointer-events: all;
@@ -175,9 +206,10 @@ $small-screen: 900px;
         box-shadow: $theme-color-blue 5px 0px 18px, $theme-color-orange -5px 0px 18px;
         text-shadow: 0px 0px 12px white;
         transition: .4s;
+        transition-delay: .1s;
 
         &:hover{
-            color: black;
+            color: rgba(0, 0, 0, 0.384);
             top: 100%;
             height: 0;
             width: 0;
@@ -191,35 +223,7 @@ $small-screen: 900px;
       }
     }
   }
-  @keyframes navbar-mobile-hide{
-    0%{opacity: 1; visibility: visible;}
-    95%{opacity: 0; visibility: visible;}
-    100%{opacity: 0; visibility: hidden;}
-  }
-  &.disable{
-    display: none;
-    .navbar-menu{
-      
-      display: none;
-      opacity: 0;
-    }
-  }
-  &.hide{
-    // animation: navbar-mobile-hide 1.2s ease-in-out forwards;
-    opacity: 0;
-    transition: opacity 1.2s;
-    .navbar-exit{
-      display: none;
-    }
-    @keyframes navbar-menu-hide{
-      0%{transform: rotate(0deg) scale(1); top: 50%;}
-      100%{transform: rotate(90deg) scale(.4); top: -20%;}
-    }
-    .navbar-menu{
-      
-     animation: navbar-menu-hide .8s ease-in    forwards; 
-    }
-  }
+  
 
 
 }
