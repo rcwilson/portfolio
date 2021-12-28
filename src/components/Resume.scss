@@ -13,3 +13,18 @@
         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.767);
     }
 }
+
+iframe.resume{
+    height: 100%;
+    width: 100%;
+    max-width: 681.6px;
+    margin: auto;
+    transform: scale(.8);
+    border: none;
+    overflow: hidden;
+    body{
+        * {
+            user-select: none;
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
 import AboutMe from './components/AboutMe'
 import ContactMe from './components/ContactMe'
@@ -16,9 +16,11 @@ import emailIcon from './images/icons/email.png'
 import gearIcon from './images/icons/gear-icon.png'
 import wrenchIcon from './images/icons/wrench-icons8.png'
 import resumeIcon from './images/icons/resume-icon.png'
+import Welcome from './components/Welcome';
 
 function App() {
   const [toolTipContent, setToolTipContent] = React.useState("")
+ 
 
     function moveToolTip(event) {
       const toolTip = document.querySelector(".tooltip")
@@ -37,14 +39,19 @@ function App() {
         window.removeEventListener('mousemove', moveToolTip)
       }
     }
-
-  const [content, setContent] = React.useState(
-  // DEV Mode:
-  // <Projects />
-
-  // Actual Start: 
-  <Intro navBar={toggleNavBubbles}/>
-  )
+  /**************************
+   * DEV SETTINGS
+   *************************/
+  const devMode = false;
+  const devStart = onClickResume;
+  //************************* */
+  const [content, setContent] = React.useState(<Intro navBar={toggleNavBubbles}/>)
+  useEffect( () => {
+    if( devMode ) {
+      devStart();
+      document.querySelector('.navbar-button').classList.remove("hide")
+    }
+  },[])
 
   function toggleNavBubbles(linkName) {
     const navBubbleArr = document.querySelectorAll('.nav-bubble')
@@ -123,6 +130,16 @@ function App() {
   }
   function onClickCredits() {
     changeContent(<Credits />)
+    toggleNavBubbles('credits')
+    toggleBackgroundImage('credits')
+  }
+  function onClickCredits() {
+    changeContent(<Credits />)
+    toggleNavBubbles('credits')
+    toggleBackgroundImage('credits')
+  }
+  function onClickWelcome() {
+    changeContent(<Welcome />)
     toggleNavBubbles('credits')
     toggleBackgroundImage('credits')
   }

@@ -1,0 +1,40 @@
+.modal{
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.541);
+
+    .modal-container{
+        position: absolute;
+        height: 100%;
+        width: 100vw;
+        display: flex;
+        opacity: 0;
+        transition: opacity .5s .5s;
+        
+        
+        &.fade-in{
+            transition: opacity .5s;
+            opacity: 1;
+
+            .modal-content{
+                opacity: 1;
+                transition: opacity .5s .5s;
+            }
+        }
+        
+        .modal-content{
+            position: relative;
+            margin: auto;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+        }
+    }
+ 
+    &.off{
+        display: none;
+    }
+}

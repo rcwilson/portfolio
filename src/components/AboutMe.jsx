@@ -21,7 +21,8 @@ export default function AboutMe() {
             From there it's been a constant adventure of exploring what I can play, see, and create.
             </p>
             <p>
-            I've recently made the steps to get an education and join the <i>software development workforce</i>. 
+            My early experiences in coding were creating games using various frameworks like Flash, RPG Maker, etc. It wasn't until
+             several years later that I finally decided to pursue these interest as an actual career prospect.
             </p>
             </section>
             </>
@@ -48,18 +49,12 @@ export default function AboutMe() {
         return(
             <section className="about-content">
             <p>
-            Since graduating, I've maintained the practice of coding daily and further exploring technologies like <i>Saas</i>,
-            <i> React</i>, and <i>Jamstack</i>--just to name a few.
-            </p>
-            <p>Although trained in <i>full-stack JavaScript</i>, I definitely found <i>UI/UX</i> front-end work to be a natural
-            zone for me to specialize in.
+            Since graduating, I've landed a role as a <i>Junior Software Engineer</i> with <i>IQVentures</i>. Here, I've gotten to add plenty more 
+            to my toolbelt--such as <i>PHP</i>, <i>JQuery</i>, and <i>Bootstrap</i>. 
             </p>
             <p>
-                With that being said, my next steps include an <i>AWS certification</i> and <i>Java</i> training. I want to continue challenging
-                myself with new languages and technologies.
-            </p>
-            <p>
-                I can't wait to see where the future in my new field takes me--and I absolutely can't wait to <i>meet my next team</i>.
+            This experience is also fine-tuning my appreciation for <i>Full-Stack</i> development. As much as I enjoy "making things look pretty," there's 
+            also a beauty in the organization of its structure. And there's always room to grow in both.
             </p>
             </section>
         )
@@ -87,7 +82,7 @@ export default function AboutMe() {
         )
     }
     const contentArray = [<Background />, <Journey />,<Summary />, <Hobbies />]
-    const headerArray = ["Beginnings", "Journey", "Summary", "Hobbies"]
+    const headerArray = ["Background", "Journey", "Summary", "Hobbies"]
 
     return (
         <>

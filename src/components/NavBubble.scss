@@ -61,7 +61,7 @@ $small-screen: 900px;
     }
 
 
-    &.touch-false:hover{
+    &.touch-false:hover, &.touch-false.hover{
         cursor: pointer;
         opacity: 1;
         transform: scale((2));

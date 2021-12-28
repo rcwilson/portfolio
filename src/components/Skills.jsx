@@ -39,66 +39,63 @@ export default function Skills() {
 
             <div className="skill-card design unselected" onClick={()=>{clickCard("design")}}>
             <header className="title">Full Stack</header>
-                <div className="face front">
-                    <div className="skill-card__content">
-                        <header>F R O N T - E N D</header>
-                        <div>Languages & Tools </div> 
-                            <span>JavaScript</span>
-                            <span>ReactJS</span>
-                            <span>React Hooks</span>
-                            <span>HTML5/CSS3</span>
-                            <span>Flex + Grid</span>
-                            <span>WebPack</span>
-                            <span>Handlebars</span>
-                            <span>Sass</span>
-                            <span>JAM Stack</span>  
-                        
-                    </div>
-                </div>
                 <div className="face back">
                     <div className="skill-card__content">
-                    <header>B A C K - E N D</header>
-                        <div>Skillset & Tools </div> 
-                            <span>NodeJs</span>
-                            <span>GitHub / GitBash</span>
-                            <span>JSON</span>
-                            <span>SQL / Sequelize</span>
-                            <span>MongoDB / Mongoose</span>
-                            <span>Model View Controller</span>
-                            <span>Express</span>
-                            <span>Content Management Systems</span>
-                            <span>WebPack</span>
-                            <span>Single Page Applications</span>  
-                            <span>APIs</span>
-                        
+                        <header>F R O N T - E N D</header>
+                        <span>JavaScript</span>
+                        <span>HTML5/CSS3</span>
+                        <span>React</span>
+                        <span>JQuery</span>
+                        <span>Bootstrap</span>
+                        <span>Handlebars</span>
+                        <span>WebPack</span>
+                        <span>Sass</span>
+                        <span>Responsive Design</span>  
+                        <span>View Templating</span>  
                     </div>
-
+                </div>
+                <div className="face front">
+                    <div className="skill-card__content">
+                        <header>B A C K - E N D</header>
+                        <span>PHP</span>
+                        <span>AWS</span>
+                        <span>SQL / Sequelize</span>
+                        <span>MongoDB / Mongoose</span>
+                        <span>NodeJs</span>
+                        <span>Express</span>
+                        <span>JSON</span>
+                        <span>Content Management Systems</span>
+                        <span>WebPack</span>
+                        <span>Single Page Applications</span>  
+                        <span>REST APIs</span>
+                    </div>
                 </div>
             </div>
 
             <div className="skill-card unselected experience" onClick={()=>{clickCard("experience")}}>
-                <header className="title">Methods</header>
+                <header className="title">Workflow</header>
                 <div className="face front">
                     <div className="skill-card__content">
-                        <header>E X P E R I E N C E</header>
-                        <div>Frameworks </div> 
-                                <span>Agile</span>
-                                <span>Scrum</span>
-                                <span>Test Driven Design</span>
-                                <span>Pair Programming</span>
-                                <span>Mob Programming</span>
+                        <header>W O R K F L O W</header>
+                        <span>Agile</span>
+                        <span>Jira / Scrum</span>
+                        <span>Git + Version Control</span>
+                        <span>Test Driven Design</span>
+                        <span>Paired Programming</span>
+                        <span>Sprint Planning</span>
+                        <span>Code Review</span>
                     </div>
                 </div>
                 <div className="face back">
                     <div className="skill-card__content">
                         <header>T E C H N I C A L</header>
-                        <div>Coding Inventory</div> 
-                                <span>Object Oriented Programming</span>
-                                <span>AJAX</span>
-                                <span>Shell / Bash</span>
-                                <span>Visual Basic Application</span>
-                                <span>Responsive Design</span>
-                                <span>Clean Code / Refactoring</span>
+                        <span>Object Oriented Programming</span>
+                        <span>AJAX</span>
+                        <span>Shell / Bash</span>
+                        <span>SSH / SFTP</span>
+                        <span>Visual Basic Application (VBA)</span>
+                        <span>Responsive Design</span>
+                        <span>Readable, Reusable Code</span>
                     </div>
                 </div>
             </div>
@@ -108,28 +105,25 @@ export default function Skills() {
                 <div className="face front">
                     <div className="skill-card__content">
                         <header>S T R E N G T H S</header>
-                        <div>Summary </div> 
-                                <span>UX / UI</span>
-                                <span>Front-End Design</span>
-                                <span>Client Interaction</span>
-                                <span>Team Communication</span>
-                                <span>Project Organization</span>
+                        <span>UX / UI</span>
+                        <span>Front-End Design</span>
+                        <span>Client Interaction</span>
+                        <span>Meeting Business Expectations</span>
+                        <span>Team Communication</span>
+                        <span>Project Organization</span>
                     </div>
                 </div>
                 <div className="face back">
                     <div className="skill-card__content">
-                        <header>G R O W T H S</header>
-                        <div>and future endeavors</div> 
-                            <span>AWS</span>
-                            <span>JAVA</span>
-                            <span>Spring</span>
-                            <span>Python</span>
-                            <span>React Native</span>
-                            <span>Raspberry Pi</span>
+                        <header>N E X T</header>
+                        <span>JAVA</span>
+                        <span>Spring</span>
+                        <span>Python</span>
+                        <span>React Native</span>
+                        <span>Raspberry Pi</span>
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }

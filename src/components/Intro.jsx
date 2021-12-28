@@ -1,7 +1,9 @@
 import React from 'react'
-import ContentContainer from './ContentContainer'
 import './Intro.scss'
 import door from '../images/Door.png'
+import WelcomeIntro from './Welcome'
+
+
 
 export default function Intro(props) {
 
@@ -38,44 +40,7 @@ export default function Intro(props) {
         )
     }
 
-    function WelcomeIntro() {
-        return (
-            <ContentContainer header="Greetings" styleMod="about">
-                <h1 className="intro-header">Welcome to my adventure, visitor!</h1>
-                <table className="intro-map">
-                    <tbody>
-                        <tr>
-                        <th colSpan="2">Guide</th>
-                        </tr>
-                        <tr>
-                            <td>About Me</td>
-                            <td>My adventure, aspirations, and hobbies</td>
-                        </tr>
-                        <tr>
-                            <td>Resume</td>
-                            <td>Preview and download my Resume</td>
-                        </tr>
-                        <tr>
-                            <td>Projects</td>
-                            <td>Showcases my recent works</td>
-                        </tr>
-                        <tr>
-                            <td>Skills</td>
-                            <td>Abilities and experience</td>
-                        </tr>
-                        <tr>
-                            <td>Contact</td>
-                            <td>Email, Social Media, and GitHub</td>
-                        </tr>
-                        <tr>
-                            <td>Credits</td>
-                            <td>Tools used and asset attributes</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </ContentContainer>
-        )
-    }
+
 
     return (
         <>{content}</>

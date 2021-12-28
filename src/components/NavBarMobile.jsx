@@ -73,27 +73,27 @@ export default function NavBarMobile(props) {
         <nav className="navbar-mobile-wrapper disable">
           <section className="navbar-menu">
             
-            <div id="link-projects" className="navbar-link left" onClick={()=>{handleNavLinkClick("projects",true)}}>
+            <div id="link-projects" className="navbar-link left" draggable="true" onClick={()=>{handleNavLinkClick("projects",true)}}>
               <span onClick={()=>{handleNavLinkClick("projects")}}>Projects</span>
               <img src={wrenchIcon}></img>
             </div>
-            <div id="link-resume" className="navbar-link left" onClick={()=>{handleNavLinkClick("resume",true)}}>
+            <div id="link-resume" className="navbar-link left" draggable="true" onClick={()=>{handleNavLinkClick("resume",true)}}>
               <span onClick={()=>{handleNavLinkClick("resume")}}>Resume</span>
               <img src={resumeIcon}></img>
             </div>
-            <div id="link-about" className="navbar-link left" onClick={()=>{handleNavLinkClick("about",true)}}>
+            <div id="link-about" className="navbar-link left" draggable="true" onClick={()=>{handleNavLinkClick("about",true)}}>
               <span onClick={()=>{handleNavLinkClick("about")}}>About Me</span>
               <img src={aboutIcon}></img>
             </div>
-            <div id="link-skills" className="navbar-link right" onClick={()=>{handleNavLinkClick("skills",true)}}>
+            <div id="link-skills" className="navbar-link right" draggable="true" onClick={()=>{handleNavLinkClick("skills",true)}}>
               <span onClick={()=>{handleNavLinkClick("skills")}}>Skills</span>
               <img src={gearIcon}></img>
             </div>
-            <div id="link-contact" className="navbar-link right" onClick={()=>{handleNavLinkClick("contact",true)}}>
+            <div id="link-contact" className="navbar-link right" draggable="true" onClick={()=>{handleNavLinkClick("contact",true)}}>
               <span onClick={()=>{handleNavLinkClick("contact")}}>Contact</span>
               <img src={emailIcon}></img>
             </div>
-            <div id="link-credits" className="navbar-link right" onClick={()=>{handleNavLinkClick("credits",true)}}>
+            <div id="link-credits" className="navbar-link right" draggable="true" onClick={()=>{handleNavLinkClick("credits",true)}}>
               <span onClick={()=>{handleNavLinkClick("credits")}}>Credits</span>
               <img src={creditsIcon}></img>
             </div>
