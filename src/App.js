@@ -22,29 +22,30 @@ function App() {
   const [toolTipContent, setToolTipContent] = React.useState("")
  
 
-    function moveToolTip(event) {
-      const toolTip = document.querySelector(".tooltip")
+    // function moveToolTip(event) {
+    //   const toolTip = document.querySelector(".tooltip")
 
-      const clientYOffset = 30
-      const clientXOffset = 10
-      toolTip.style.top = (event.clientY + clientYOffset) + "px"
-      toolTip.style.left = (event.clientX + clientXOffset) + "px"
-    }
+    //   const clientYOffset = 30
+    //   const clientXOffset = 10
+    //   toolTip.style.top = (event.clientY + clientYOffset) + "px"
+    //   toolTip.style.left = (event.clientX + clientXOffset) + "px"
+    // }
     
-    function handleToolTipContent(newContent){
-      setToolTipContent(newContent)
-      if(newContent){
-        window.addEventListener('mousemove', moveToolTip)
-      } else {
-        window.removeEventListener('mousemove', moveToolTip)
-      }
-    }
+    // function handleToolTipContent(newContent){
+    //   setToolTipContent(newContent)
+    //   if(newContent){
+    //     window.addEventListener('mousemove', moveToolTip)
+    //   } else {
+    //     window.removeEventListener('mousemove', moveToolTip)
+    //   }
+    // }
   /**************************
    * DEV SETTINGS
    *************************/
-  const devMode = false;
-  const devStart = onClickResume;
+  const devMode = true;
+  const devStart = onClickProjects;
   //************************* */
+
   const [content, setContent] = React.useState(<Intro navBar={toggleNavBubbles}/>)
   useEffect( () => {
     if( devMode ) {
@@ -92,11 +93,15 @@ function App() {
   function changeContent(newContent) {
     const sectionElement = document.querySelector('.section-container')
     const skillCardContainerElement = document.querySelector('.skill-cards-container')
+    const projectFooterElement = document.querySelector('.project-footer')
     if(sectionElement){
       sectionElement.classList.add('move-out')
     }
     if(skillCardContainerElement){
       skillCardContainerElement.classList.add('move-out')
+    }
+    if(projectFooterElement){
+      projectFooterElement.classList.remove('fade-in')
     }
     setTimeout(() => {
       setContent(newContent)
@@ -104,7 +109,7 @@ function App() {
   }
 
   function onClickProjects() {
-    changeContent(<Projects tooltip={handleToolTipContent}/>)
+    changeContent(<Projects />)
     toggleNavBubbles('projects')
     toggleBackgroundImage('projects')
   }

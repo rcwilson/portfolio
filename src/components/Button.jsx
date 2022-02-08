@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Button.scss'
 
-export default function Button(props) {
+function Button(props) {
 
     function handleClick(e) {
         if(props.onClick) props.onClick(e);
@@ -22,3 +23,13 @@ export default function Button(props) {
         </div>
     )
 }
+
+Button.propTypes = {
+    tabIndex: PropTypes.number,
+    onClick: PropTypes.func,
+    onKeyDown: PropTypes.func,
+    
+}
+
+export default Button;
+

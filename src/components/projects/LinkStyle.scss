@@ -1,0 +1,41 @@
+.icon-link{
+    display: flex;
+    justify-content: center;
+    padding: .3rem;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.548);
+    border-radius: 20px;
+    transition: .2s;
+    border: 1px solid rgba(0, 0, 0, 0.322);
+    background-color: whitesmoke;
+    
+    &:hover{
+        box-shadow: none;
+        background-color: rgb(209, 209, 209);
+    }
+    &:active{
+        box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.548);
+    }
+    img{
+        height: 100%;
+        border-right: 1px solid rgba(0, 0, 0, 0.301);
+        padding-right: .35rem;
+        padding-left: .15rem;
+        // width: 2rem;
+    }
+
+    span{
+        // position: relative;
+        // bottom: 0;
+        padding: .25rem;
+        margin-left: .25rem;
+        display: flex;
+        flex-direction: column;
+        vertical-align: text-bottom;
+        
+    }
+
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,9 +1,16 @@
 import React, {useState, useEffect} from 'react'
+import PropTypes, { string } from 'prop-types'
 import './ContentContainer.scss'
+import Button from './Button'
 
-export default function SectionContainer(props) {
+/**
+ * @component */
+function SectionContainer(props) {
     const isCarousel = props.contentArr ? true : false
     const isContact = props.styleMod === "contact" ? true : false
+    const hasTabDropdown = props.tabDropDown && props.tabDropDown.length > 1;
+    const className = props.className ?? "" + " " + props.styleMod ?? ""
+
 
     const [currentContentIndex, setCurrentContentIndex] = useState(0)
     useEffect(()=>{
@@ -106,8 +113,6 @@ export default function SectionContainer(props) {
             }, 1200)
         }
     }
-
-
     function handleLeftButtonClick(){
         handleTransition("left")
         setTimeout(()=>{
@@ -121,34 +126,61 @@ export default function SectionContainer(props) {
         }, 700)
     }   
 
+    /* Sub Components */
+    function ContentHeader() {
+        return (
+            <header className="section-header">      
+                <span className="circle orange one"></span>
+                <span className="circle orange two"></span>
+                <span className="circle orange three"></span> 
+        {isCarousel ? <h2>{props.headerArr[currentContentIndex]}</h2> : props.header ? <h2>{props.header}</h2> : ""}
+                <span className="circle blue three"></span>
+                <span className="circle blue two"></span>
+                <span className="circle blue one"></span>
+            </header>
+        )
+    }
 
+    function ContactFooter() {
+        return (
+            <footer className="contact-footer">
+                    <span className="circle-footer orange one"></span>
+                    <span className="circle-footer orange one"></span>
+                    <span className="circle-footer orange two"></span>
+                    <span className="circle-footer orange two"></span>
+                    <span className="circle-footer orange three"></span>                 
+                    <span className="circle-footer orange three"></span>                 
+                    <span className="circle-footer blue three"></span>
+                    <span className="circle-footer blue three"></span>
+                    <span className="circle-footer blue two"></span>
+                    <span className="circle-footer blue two"></span>
+                    <span className="circle-footer blue one"></span>
+                    <span className="circle-footer blue one"></span>
+                </footer>
+        )
+    }
 
+    function TabDropDown() {
+        return (
+            <select className='content-tab-dropdown' type="dropdown">
+            {
+                props.tabDropDown.map(tab => {
+                    return <option>{tab}</option>
+                })
+            }
+            </select>
+        )
+    }
+    
     return (
-        <article className={`section-container ${props.styleMod ? props.styleMod : ""}`}>
-            
+        <article className={`section-container ${className}`}>
+            {hasTabDropdown ? <TabDropDown/> : ""}
             <section className="section-container-wrapper">
-                {props.gitHubArr ?
-                    props.gitHubArr[currentContentIndex]
-                    : "" }
-                {props.playArr ?
-                    props.playArr[currentContentIndex]
-                    : "" }
-
-                <header className="section-header">
-                    
-                    <span className="circle orange one"></span>
-                    <span className="circle orange two"></span>
-                    <span className="circle orange three"></span>
-                   
-                {isCarousel ? <h2>{props.headerArr[currentContentIndex]}</h2> : props.header ? <h2>{props.header}</h2> : ""}
-                    <span className="circle blue three"></span>
-                    <span className="circle blue two"></span>
-                    <span className="circle blue one"></span>
-                </header>
+                {props.hideHeader !== true ? <ContentHeader /> : ""}
                 <section className="content-container">
-                    <div className="content-container-wrapper">
+                    <div className={`content-container-wrapper ${props.spreadEven ? "spread-even" : ""} ${props.noScroll ? "no-scroll" : ""}`}>
                     {isCarousel ? props.contentArr[currentContentIndex] : props.content}
-                    {!(isCarousel) ? props.children : ""}
+                    {isCarousel !== true ? props.children : ""}
                     </div>
                 </section>
             {isCarousel ? 
@@ -159,20 +191,7 @@ export default function SectionContainer(props) {
                 </footer>
             : ""}
             {isContact ?
-                <footer className="contact-footer">
-                    <span className="circle-footer orange one"></span>
-                    <span className="circle-footer orange one"></span>
-                    <span className="circle-footer orange two"></span>
-                    <span className="circle-footer orange two"></span>
-                    <span className="circle-footer orange three"></span>                 
-                    <span className="circle-footer orange three"></span>                 
-                    <span className="circle-footer blue three"></span>
-                    <span className="circle-footer blue three"></span>
-                    <span className="circle-footer blue two"></span>
-                    <span className="circle-footer blue two"></span>
-                    <span className="circle-footer blue one"></span>
-                    <span className="circle-footer blue one"></span>
-                </footer>
+                <ContactFooter />
             : ""}
             </section>
             {isCarousel ?
@@ -184,3 +203,47 @@ export default function SectionContainer(props) {
         </article>
     )
 }
+
+SectionContainer.propTypes = {
+    styleMod: PropTypes.string,
+    
+    /**
+     * Header Text: Displayed between circles at top of container
+     */
+    header: PropTypes.string,
+    
+    /**
+     * Hides header. 
+     * 
+     * default
+     *                      
+     *          false
+     */
+    hideHeader: PropTypes.bool,
+    
+    /**
+     * hides scroll bar in content-container
+     * 
+     * default
+     * 
+     *          true
+     */
+    noScroll: PropTypes.bool,
+
+    /**
+     * Spread content evently with Flex
+     */
+    spreadEven: PropTypes.bool,
+    
+    /**
+     * Append class to element
+     */
+    className: PropTypes.string,
+    
+    /**
+     * Array of string. Tab dropdown
+     */
+    tabDropDown: PropTypes.arrayOf(string),
+}
+
+export default SectionContainer;

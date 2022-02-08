@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Modal.scss'
 
-export default function Modal(props) {
+function Modal(props) {
 
     const refContainer = React.useRef();
     const refModal = React.useRef();
@@ -35,12 +36,15 @@ export default function Modal(props) {
         }
     }
     function exitModal(e) {
+        if( props.setDisplayModal ) {
             props.setDisplayModal(false);
-    }
+        }
+    }   
 
     return (
-        <div ref={refModal} className='modal off'>
-            <div ref={refContainer} onClick={exitModal} className='modal-container'>
+        <div ref={refModal} className='modal project-modal off'>
+            
+            <div ref={refContainer} onClick={props.static ? null : exitModal} className='modal-container'>
                 <div  className='modal-content'>
                     {props.children}
                 </div>
@@ -48,3 +52,14 @@ export default function Modal(props) {
         </div>
     )
 }
+
+Modal.propTypes = {
+    /** displayModal - bool */
+    displayModal : PropTypes.bool,
+    setDisplayModal: PropTypes.func,
+    static: PropTypes.bool,
+
+
+}
+
+export default Modal;

@@ -7,11 +7,12 @@ $theme-color-blue2: #007cb6a8;
 $theme-color-blue1: #007cb652;
 $theme-color-light-blue: #38b6ff;
 $theme-color-dark-blue: #13415c;
+$theme-color-dark-blue2:rgb(9, 28, 39);
 
 .button{
     font-size: 1.1rem;
     text-shadow: 0px 0px 3px black;
-    width: 90%;
+    width: 85%;
     padding: 1rem;
     margin: 1rem auto 1rem auto;
     background-color: $theme-color-blue2;
@@ -30,5 +31,16 @@ $theme-color-dark-blue: #13415c;
         box-shadow: inset $theme-color-dark-blue 0px 0px 10px, inset 2px 5px 12px white, 0px 0px 12px 4px rgba(0, 0, 0, 0.466);
         outline: none;
         border: 1px solid rgba(0, 0, 0, 0);
+    }
+    
+    &:active{
+        box-shadow: inset $theme-color-dark-blue 0px 0px 10px, inset 2px 5px 12px $theme-color-dark-blue2;
+        background-color: $theme-color-dark-blue;
+    }
+
+    .btn-icon{
+        position: absolute;
+        left: 50px;
+        opacity: .5;
     }
 }

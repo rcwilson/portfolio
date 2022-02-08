@@ -9,18 +9,18 @@ import wrenchIcon from '../images/icons/wrench-icons8.png'
 import resumeIcon from '../images/icons/resume-icon.png'
 
 const nav = {
-    get: function(name) {
+    get: ( name ) => {
         return document.querySelector(`.nav-bubble.${name}`);
     },
-    mouseenter: (e)=>{
+    mouseenter: ( e ) => {
         const aboutBubble = nav.get(e.currentTarget.dataset['target']);
         if(aboutBubble) aboutBubble.classList.add('hover');
     },
-    mouseleave: (e)=>{
+    mouseleave: ( e ) => {
         const aboutBubble = nav.get(e.currentTarget.dataset['target']);
         if(aboutBubble) aboutBubble.classList.remove('hover');
     },
-    mouseclick: (e)=>{
+    mouseclick: ( e ) => {
         const aboutBubble = nav.get(e.currentTarget.dataset['target']);
         if(aboutBubble) aboutBubble.click();
 

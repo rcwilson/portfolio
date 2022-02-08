@@ -1,10 +1,12 @@
 import React from 'react'
 import ContentContainer from './ContentContainer'
 import Modal from './Modal'
-import resume from './resume/Resume-public.pdf'
-import resumeImg from './resume/Resume-public.png'
-import './Resume.scss'
 import Button from './Button'
+
+import './Resume.scss'
+
+import fileDownloadIcon from '../images/icons/file_download_black_24dp.svg'
+import filePreviewIcon from '../images/icons/search_black_24dp.svg'
 
 const downloadLink = "https://docs.google.com/document/d/1hEbr8rp9GCZq9kMKQaHu2kqbweUeXzsa3s_i6yniUwQ/export?format=pdf"
 
@@ -29,9 +31,13 @@ export default function Resume() {
         
         }
 
-        <ContentContainer>
-            <Button tabIndex={1} onClick={handleClickPreview}>Preview</Button>
-            <Button tabIndex={2} href={"docs.google.com/document/d/1hEbr8rp9GCZq9kMKQaHu2kqbweUeXzsa3s_i6yniUwQ/export?format=pdf"} onClick={handleClickDownload}>Download</Button>
+        <ContentContainer >
+            <Button tabIndex={1} onClick={handleClickPreview}>
+                <img alt="preview resume" className='btn-icon' src={filePreviewIcon}></img>Preview
+            </Button>
+            <Button tabIndex={2} href={"docs.google.com/document/d/1hEbr8rp9GCZq9kMKQaHu2kqbweUeXzsa3s_i6yniUwQ/export?format=pdf"} onClick={handleClickDownload}>
+                <img alt="download pdf" className='btn-icon' src={fileDownloadIcon}></img>Download
+            </Button>
         </ContentContainer>
         </>
     )

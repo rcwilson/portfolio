@@ -1,15 +1,12 @@
 import React from 'react'
-import gitHubIcon from './gitHubIcon.png'
+import gitHubIcon from '../../images/icons/gitHub_clear.png'
+import './LinkStyle.scss'
 
 export default function GitHubLink(props) {
     return (
-    <div className='github-link link-tab'>
-        <a href={props.href} target="_blank" rel="noopener noreferrer">
-                
+        <a className='icon-link' href={props.href} target="_blank" rel="noopener noreferrer">
             <img src={gitHubIcon}  alt="Github Link"></img>
-        
+            <span>Repo</span>
         </a>
-    </div>
-
     )
 }
