@@ -291,6 +291,10 @@ i.exit-icon{
         border: 2px solid black;
     }
     img{
+        &:focus-visible, &:focus {
+            outline: 2px solid white; 
+            border: 2px solid black;    
+        }
         margin: auto;
         max-width: 25px;
         max-height: 25px;

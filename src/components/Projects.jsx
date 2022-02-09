@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import ContentContainer from './ContentContainer'
 import './Projects.scss'
 import projects from '../API/projects.class.ts'
@@ -10,7 +10,6 @@ import iconImage from '../images/icons/round_image_white.png'
 
 import GitHubLink from './projects/GitHubLink'
 import PlayLink from './projects/PlayLink'
-import Modal from './Modal'
 
 
 function ProjectThumbnail({ imgOnClick, hideToggleFooter, ...props }) {
@@ -23,7 +22,7 @@ function ProjectTools({ tools, ...props }) {
     <> 
         <section className="project-tools">
             {tools.map(function(value, index) {
-                return <span> {value} </span>
+                return <span key={index}> {value} </span>
             })}
         </section>
     </>    
@@ -34,13 +33,12 @@ function ProjectDescription({ description, ...props }) {
     return (
         <>
             <hr style={{ width: '90%' }} />
-            {description.map(paragraph => {
-                return <p>{paragraph}</p>
+            {description.map( (paragraph, index) => {
+                return <p key={index}>{paragraph}</p>
             })}
             <hr style={{ width: '90%' }} />
         </>
     )
-
 }
 
 function ProjectLinks({ project, ...props }) {
@@ -53,8 +51,7 @@ function ProjectLinks({ project, ...props }) {
             {project?.demoURL
                 ? <PlayLink href={project.demoURL} />
                 : ""
-            }
-            
+            }            
         </section>
     )
 }
@@ -72,25 +69,37 @@ function ProjectHeader({ project, ...props }) {
     )
 }
 
-function ProjectContent({ project, ...props }) {
-    console.log(project)
+function ProjectScreenshots({ project, ...props }) {
 
     const refProjectFooter = useRef();
     const [activeImage, setActiveImage] = useState(null);
+
+    let isFullScreen = false;
 
     function handleToggleFooter(e) {
         const footerElement = refProjectFooter.current;
         footerElement.classList.toggle('hide');
     }
-    
+
     function handleClickImage(e) {
-        const footerElement = refProjectFooter.current;
-        footerElement.classList.add('full-screen');
+        if( activeImage ) {
+            activeImage.classList.remove('active');
+        }
         e.currentTarget.classList.add('active');
-        if( activeImage ) activeImage.classList.remove('active');
         setActiveImage(e.currentTarget);
+
+        if( ! isFullScreen ) {
+            handleEnterFullScreen();
+        }
     }
     
+    function handleEnterFullScreen() {
+        const footerElement = refProjectFooter.current;
+        footerElement.classList.add('full-screen');
+        
+        isFullScreen = true;
+        
+    }
     function handleExitFullScreen(e) {
         if( activeImage ){
             activeImage.classList.remove('active');
@@ -98,8 +107,31 @@ function ProjectContent({ project, ...props }) {
         } 
         const footerElement = refProjectFooter.current;
         footerElement.classList.remove('full-screen');
+        isFullScreen = false;
+
     }
-    
+    return (
+        <footer ref={refProjectFooter} className='project-footer hide'>
+            <span onClick={handleToggleFooter} className='project-footer-toggle'>
+                &nbsp;&nbsp; <img src={iconImage} alt="Project Images" /> &nbsp;Screenshots 
+                <i className='num-circle' >{project.images ? project.images.length : "0"} </i>
+            </span>
+            <i className='exit-icon' tabIndex={1}  > <img src={iconClose} role='button' onClick={()=>handleExitFullScreen()} /> </i>
+            <div className='project-footer-img-wrapper'>
+                    {
+                    project.images.map(function(value, index) {
+                        return <ProjectThumbnail imgOnClick={handleClickImage} key={index} src={value} />
+                    })
+                }
+            </div>
+            <section className='project-active-img'>
+                {activeImage ? <img src={activeImage.src} /> : ''}
+            </section>
+        </footer>
+    )
+}
+
+function ProjectContent({ project, ...props }) {
 
     return (
         <section className='project-content'>
@@ -110,24 +142,8 @@ function ProjectContent({ project, ...props }) {
             </div> 
 
             <ProjectLinks project={ project } />   
-
-            <footer ref={refProjectFooter} className='project-footer hide'>
-                <span onClick={handleToggleFooter} className='project-footer-toggle'>
-                    &nbsp;&nbsp; <img src={iconImage} alt="Project Images" /> &nbsp;Screenshots 
-                    <i className='num-circle' >{project.images ? project.images.length : "0"} </i>
-                </span>
-                <i className='exit-icon' role='button' onClick={handleExitFullScreen}> <img src={iconClose} /> </i>
-                <div className='project-footer-img-wrapper'>
-                     {
-                        project.images.map(function(value, index) {
-                            return <ProjectThumbnail imgOnClick={handleClickImage} key={index} src={value} />
-                        })
-                    }
-                </div>
-                <section className='project-active-img'>
-                    {activeImage ? <img src={activeImage.src} /> : ''}
-                </section>
-            </footer>
+            <ProjectScreenshots project={ project } />
+            
         </section>
         )
 }
@@ -166,10 +182,28 @@ function Project(props) {
             : projects.categories[0]
         }
         </div>
-        </>)
+    </>)
 }
 
 function Projects(props) {
+
+    const tabTrap = useCallback(function(e) {
+        const fullScreenFooter = document.querySelector('.project-footer');
+        if(fullScreenFooter.classList.contains('full-screen')) {
+            let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+            let isEscPressed = e.key === 'Esc' || e.key === 'Escape'
+            const exitIcon = document.querySelector('.exit-icon img');
+            if(isEscPressed) {
+                exitIcon.click();
+            }
+            if(isTabPressed) {
+                if( exitIcon ) {
+                    exitIcon.focus();
+                    e.preventDefault();
+                } 
+            }
+        }
+    })
 
     useEffect(()=>{
         const footerElement = document.querySelector('.project-footer');
@@ -177,6 +211,14 @@ function Projects(props) {
         setTimeout( () => {     
             footerElement.classList.remove('hide')
         }, 1500);
+
+        document.addEventListener("keydown", tabTrap, true);
+
+        return ()=>{
+            document.removeEventListener("keydown", tabTrap, true);
+
+        }
+
     })
 
     return (
@@ -184,7 +226,6 @@ function Projects(props) {
         <ContentContainer noScroll={true} className="content-projects" hideHeader={true}>
             
             <Project type="personal" active/>
-
 
         </ContentContainer>
     )
