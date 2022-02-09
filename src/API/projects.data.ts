@@ -1,6 +1,6 @@
-const Project = require('./project.class');
+import Project from './project.class';
 
-const ProjectsData = [
+const projectsData = [
         new Project({
             name: "Choose-Your-Own-Adventure Game",
             category: "Personal",
@@ -23,7 +23,7 @@ const ProjectsData = [
             name: "Bring It",
             category: "School",
             gitURL: "https://github.com/rcwilson/Bring-It-Front-End",
-            summary: "The ultimate party planner! ",
+            summary: "The ultimate party planner!",
             description: [
                 "Users can log in and create or check an event, then claim items needed or create their own. Bring it is about to be a potluck savior.",
                 "The data is stored in a cloud database called MongoDB. Bring It works through a custom-built API that handles the logic and management of that data.",
@@ -53,4 +53,4 @@ const ProjectsData = [
         }),
     ]
 
-export default ProjectsData;
+export default projectsData;

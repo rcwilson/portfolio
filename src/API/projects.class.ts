@@ -1,5 +1,5 @@
 import Project from './project.class'
-import projectsData from './projects.data';
+import projectData from './projects.data';
 
 class Projects {
     all: Project[];
@@ -54,4 +54,4 @@ class Projects {
     
 }
 
-export default new Projects(projectsData);
+export default new Projects(projectData);
