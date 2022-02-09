@@ -19,30 +19,11 @@ import resumeIcon from './images/icons/resume-icon.png'
 import Welcome from './components/Welcome';
 
 function App() {
-  const [toolTipContent, setToolTipContent] = React.useState("")
  
-
-    // function moveToolTip(event) {
-    //   const toolTip = document.querySelector(".tooltip")
-
-    //   const clientYOffset = 30
-    //   const clientXOffset = 10
-    //   toolTip.style.top = (event.clientY + clientYOffset) + "px"
-    //   toolTip.style.left = (event.clientX + clientXOffset) + "px"
-    // }
-    
-    // function handleToolTipContent(newContent){
-    //   setToolTipContent(newContent)
-    //   if(newContent){
-    //     window.addEventListener('mousemove', moveToolTip)
-    //   } else {
-    //     window.removeEventListener('mousemove', moveToolTip)
-    //   }
-    // }
   /**************************
    * DEV SETTINGS
    *************************/
-  const devMode = true;
+  const devMode = false;
   const devStart = onClickProjects;
   //************************* */
 
@@ -108,40 +89,46 @@ function App() {
     }, 1200)
   }
 
+  function changeTitle( pageName ) {
+    const newPageTitle = `Richard C Wilson | ${pageName}`;
+    document.title = newPageTitle;
+  }
+
   function onClickProjects() {
     changeContent(<Projects />)
     toggleNavBubbles('projects')
     toggleBackgroundImage('projects')
+    changeTitle("Projects")
   }
   function onClickSkills() {
     changeContent(<Skills />)
     toggleNavBubbles('skills')
     toggleBackgroundImage('skills')
+    changeTitle("Skills")
   }
   function onClickResume() {
     changeContent(<Resume />)
     toggleNavBubbles('resume')
     toggleBackgroundImage('resume')
+    changeTitle("Resume")
   }
   function onClickContact() {
     changeContent(<ContactMe />)
     toggleNavBubbles('contact')
     toggleBackgroundImage('contact')
+    changeTitle("Contact")
   }
   function onClickAbout() {
     changeContent(<AboutMe />)
     toggleNavBubbles('about')
     toggleBackgroundImage('about')
+    changeTitle("About")
   }
   function onClickCredits() {
     changeContent(<Credits />)
     toggleNavBubbles('credits')
     toggleBackgroundImage('credits')
-  }
-  function onClickCredits() {
-    changeContent(<Credits />)
-    toggleNavBubbles('credits')
-    toggleBackgroundImage('credits')
+    changeTitle("Credits")
   }
   function onClickWelcome() {
     changeContent(<Welcome />)
@@ -198,7 +185,6 @@ function App() {
         </nav>
         
         <div className="main-wrapper">
-        <span className="tooltip">{toolTipContent}</span>
           {content}
         </div>
 
